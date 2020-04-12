@@ -1,6 +1,6 @@
 console.log('----- ARRAY METHODS -----');
 /** 
-    push(), pop(), unshift(), shift()
+    push(), pop(), unshift(), shift(), indexOf(), Arrat.isArray()
     forEach()
     includes()
     filter()
