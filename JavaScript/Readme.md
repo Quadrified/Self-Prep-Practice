@@ -48,3 +48,6 @@ Index for all the topics in ```index.js```
   - Regular functions
   - Arrow functions
     - Implicit returning an object literal after taking String as an Input
+   
+   
+   
