@@ -2,6 +2,8 @@ export {};
 let message = "Hello, Quadri!";
 // console.log(message);
 
+// Declerations, Var types, Arrays, tuple, enums, any, Interfaces, Classes 
+
 // Variable types - boolean, number, string, null, undefined, tuple, enum, any
 
 let isBeginner: boolean = true;
@@ -23,6 +25,8 @@ let u: undefined = undefined;
 
 let isNew: boolean = null;
 let newName: string = undefined;
+
+// Array 
 
 let arrayList: number[] = [1, 2, 3];
 let arrayList2: Array<number> = [1, 2, 3];
