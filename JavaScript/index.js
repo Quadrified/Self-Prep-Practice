@@ -340,3 +340,5 @@ const ages = [23, 84, 96, 78, 23, 11, 12];
 const srCitizen = ages.filter(age => age >= 60);
 
 // console.log(srCitizen);
+
+console.log("Demo benach for git")
