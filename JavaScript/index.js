@@ -54,6 +54,45 @@ const s = "Omer Quadri";
 
 // console.log(s.repeat(10));
 
+// == vs ===
+let bool = 2;
+console.log(typeof(bool));
+ 
+if(bool == 2){
+	console.log('True')
+}
+
+if(bool === 2){ // False because condition is false
+	console.log('Execute when true')
+} else { // True because condition is True
+	console.log('Execute when false')
+}
+
+let a = 5, b = '5', c = 6;
+
+console.log(a + b); // Concatenated
+
+// login, password => string
+// 'login success', login = 'Manikanta', password = 'Mani@dsmart'
+// 'login failed'
+
+// switch statement
+let color = 'White';
+
+// case 'Red' === color == 'Red'
+switch (color) {
+	case 'Red':
+		// logic
+		console.log('Red is displayed');
+		break;
+	case 'Blue':
+		console.log('Blue is displayed');
+		break;
+	default:
+		console.log('No color')
+		break;
+}
+
 /* ARRAYS */
 
 // console.log("----- ARRAYS -----");
@@ -341,4 +380,4 @@ const srCitizen = ages.filter(age => age >= 60);
 
 // console.log(srCitizen);
 
-console.log("Demo benach for git")
+// console.log("Demo benach for git")
