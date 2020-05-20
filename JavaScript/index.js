@@ -55,43 +55,45 @@ const s = "Omer Quadri";
 // console.log(s.repeat(10));
 
 // == vs ===
-let bool = 2;
-console.log(typeof(bool));
- 
-if(bool == 2){
-	console.log('True')
-}
 
-if(bool === 2){ // False because condition is false
-	console.log('Execute when true')
-} else { // True because condition is True
-	console.log('Execute when false')
-}
+// let bool = 2;
+// console.log(typeof(bool));
 
-let a = 5, b = '5', c = 6;
+// if(bool == 2){
+// 	console.log('True')
+// }
 
-console.log(a + b); // Concatenated
+// if(bool === 2){ // False because condition is false
+// 	console.log('Execute when true')
+// } else { // True because condition is True
+// 	console.log('Execute when false')
+// }
+
+// let a = 5, b = '5', c = 6;
+
+// console.log(a + b); // Concatenated
 
 // login, password => string
 // 'login success', login = 'Manikanta', password = 'Mani@dsmart'
 // 'login failed'
 
 // switch statement
-let color = 'White';
 
-// case 'Red' === color == 'Red'
-switch (color) {
-	case 'Red':
-		// logic
-		console.log('Red is displayed');
-		break;
-	case 'Blue':
-		console.log('Blue is displayed');
-		break;
-	default:
-		console.log('No color')
-		break;
-}
+// let color = 'White';
+
+// // case 'Red' === color == 'Red'
+// switch (color) {
+// 	case 'Red':
+// 		// logic
+// 		console.log('Red is displayed');
+// 		break;
+// 	case 'Blue':
+// 		console.log('Blue is displayed');
+// 		break;
+// 	default:
+// 		console.log('No color')
+// 		break;
+// }
 
 /* ARRAYS */
 
@@ -99,15 +101,17 @@ switch (color) {
 
 const fruits = ["Apples", "Mangoes", "Oranges"];
 
+console.log(fruits);
+
 // console.log(fruits[1]);
 
 fruits[3] = "Grapes";
 
-fruits.push("Bananas");
+// fruits.push("Bananas");
 
-fruits.unshift("Berries");
+// fruits.unshift("Berries");
 
-fruits.pop();
+// fruits.pop();
 
 // console.log(Array.isArray(fruits));
 
@@ -142,7 +146,7 @@ const [Captain, viceCaptain, ...restPlayers] = team;
 // Swapping with Destructuring
 
 let onCrease = "Omer",
-	offCrease = "Quadri";
+  offCrease = "Quadri";
 
 // console.log(onCrease, offCrease);
 
@@ -150,24 +154,23 @@ let onCrease = "Omer",
 
 // console.log(onCrease, offCrease);
 
-
 /* OBJECTS */
 
 // console.log("----- OBJECTS -----");
 
 const person = {
-	name: "Omer",
-	age: 22,
-	hobbies: ["Mobile dev", "Cooking", "Eat"],
-	address: {
-		street: "Maruthi Nagar",
-		city: "Hyderabad"
-	},
-	social: {
-		github: "github.com/Quadrified",
-		instagram: "instagram.com/Quadrified",
-		facebook: "facebook.com/Quadrified"
-	}
+  name: "Omer",
+  age: 22,
+  hobbies: ["Mobile dev", "Cooking", "Eat"],
+  address: {
+    street: "Maruthi Nagar",
+    city: "Hyderabad",
+  },
+  social: {
+    github: "github.com/Quadrified",
+    instagram: "instagram.com/Quadrified",
+    facebook: "facebook.com/Quadrified",
+  },
 };
 
 // console.log(person);
@@ -187,10 +190,10 @@ const person = {
 // Destructuring
 
 const {
-	name,
-	age,
-	address: { city },
-	hobbies
+  name,
+  age,
+  address: { city },
+  hobbies,
 } = person;
 
 // console.log(name, age, city);
@@ -216,15 +219,15 @@ const { w: width = 100, h: height = 400 } = { w: 800 };
 // Destructuring with functions
 
 function currencyConverter(amt) {
-	// Returns an object with converted currencies
+  // Returns an object with converted currencies
 
-	const converted = {
-		USD: amt * 0.7,
-		GBP: amt * 0.76,
-		AUD: amt * 1.01
-	};
+  const converted = {
+    USD: amt * 0.7,
+    GBP: amt * 0.76,
+    AUD: amt * 1.01,
+  };
 
-	return converted;
+  return converted;
 }
 
 // console.log(currencyConverter(100));
@@ -240,26 +243,26 @@ const { USD, GBP, AUD } = currencyConverter(100); // We get direct converted val
 // console.log("----- ARRAY OF OBJECTS -----");
 
 const todos = [
-	{
-		id: 1,
-		task: "Start JS tutorial",
-		isCompleted: true
-	},
-	{
-		id: 2,
-		task: "Complete JS tutorial",
-		isCompleted: false
-	},
-	{
-		id: 3,
-		task: "Complete Wes JS tutorial",
-		isCompleted: false
-	},
-	{
-		id: 4,
-		task: "Complete Array method tutorial",
-		isCompleted: false
-	}
+  {
+    id: 1,
+    task: "Start JS tutorial",
+    isCompleted: true,
+  },
+  {
+    id: 2,
+    task: "Complete JS tutorial",
+    isCompleted: false,
+  },
+  {
+    id: 3,
+    task: "Complete Wes JS tutorial",
+    isCompleted: false,
+  },
+  {
+    id: 4,
+    task: "Complete Array method tutorial",
+    isCompleted: false,
+  },
 ];
 
 // console.table(todos);
@@ -277,7 +280,7 @@ const todos = [
 // for loop
 
 for (let i = 0; i < 10; i++) {
-	// console.log(i);
+  // console.log(i);
 }
 
 // while loop
@@ -285,14 +288,14 @@ for (let i = 0; i < 10; i++) {
 let i = 0;
 
 while (i < 10) {
-	// console.log(i);
-	i++;
+  // console.log(i);
+  i++;
 }
 
 // Looping arrays
 
 for (let i = 0; i < todos.length; i++) {
-	// console.log(todos[i].task);
+  // console.log(todos[i].task);
 }
 
 // for of loop (loops over iterables only i.e. Array, Strings, Maps etc.)
@@ -300,8 +303,8 @@ for (let i = 0; i < todos.length; i++) {
 // for an array for of loop returns the values as asked
 
 for (let todo of todos) {
-	// console.log(todo.task); // returns the tasks
-	// console.log(todo); // returns the whole object
+  // console.log(todo.task); // returns the tasks
+  // console.log(todo); // returns the whole object
 }
 
 const myName = "Omer Quadri";
@@ -309,19 +312,19 @@ const myName = "Omer Quadri";
 // for a string for of loop returns each and every character
 
 for (const char of myName) {
-    // console.log(char);
+  // console.log(char);
 }
 
 // forEach loop
 
-const ids = todos.forEach(function(todo) {
-	// console.log(todo.id);
+const ids = todos.forEach(function (todo) {
+  // console.log(todo.id);
 });
 
 // map => returns an array back
 
-const tasks = todos.map(function(todo) {
-	return todo.task;
+const tasks = todos.map(function (todo) {
+  return todo.task;
 });
 
 // console.log(tasks);
@@ -329,20 +332,20 @@ const tasks = todos.map(function(todo) {
 // filter => returns and array back
 
 const completedTasks = todos
-	.filter(function(todo) {
-		return todo.isCompleted === false;
-	})
-	.map(function(todo) {
-		// tacking on different methods together
-		return todo.task;
-	});
+  .filter(function (todo) {
+    return todo.isCompleted === false;
+  })
+  .map(function (todo) {
+    // tacking on different methods together
+    return todo.task;
+  });
 
 // console.log(completedTasks);
 
 /* FUNCTIONS */
 
 function add(n1, n2) {
-	return n1 + n2;
+  return n1 + n2;
 }
 
 // console.log(add(1, 3));
@@ -353,30 +356,30 @@ const addNum = (n1, n2) => n1 + n2;
 
 // console.log(addNum(1, 3));
 
-const addOne = n1 => n1 + 100;
+const addOne = (n1) => n1 + 100;
 
 // console.log(addOne(5));
 
 const names = ["Taha", "Omer", "Mohammed"];
 const race = "100m dash";
 
-const fullNames = names.map(name => `${name} Quadri`);
+const fullNames = names.map((name) => `${name} Quadri`);
 
 // console.log(fullNames);
 
 // Implicit returning an object literal after taking String as an Input
 
 const whoWon = names.map((name, i) => ({
-	name,
-	race,
-	place: i + 1
+  name,
+  race,
+  place: i + 1,
 }));
 
 // console.table(whoWon);
 
 const ages = [23, 84, 96, 78, 23, 11, 12];
 
-const srCitizen = ages.filter(age => age >= 60);
+const srCitizen = ages.filter((age) => age >= 60);
 
 // console.log(srCitizen);
 
