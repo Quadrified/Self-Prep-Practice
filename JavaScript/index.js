@@ -1,4 +1,4 @@
-console.log("----- BRAD & WES JS TUTORIAL -----");
+console.log("----- JS TUTORIAL -----");
 
 const x = null;
 
@@ -99,23 +99,27 @@ const s = "Omer Quadri";
 
 // console.log("----- ARRAYS -----");
 
-const fruits = ["Apples", "Mangoes", "Oranges"];
+const fruits = ["Apples", "Mangoes", "Oranges", "aa", 53, true];
 
-console.log(fruits);
+const obj = {
+  name: "Omer",
+};
+
+// console.log(fruits);
 
 // console.log(fruits[1]);
 
 fruits[3] = "Grapes";
 
-// fruits.push("Bananas");
+fruits.push("Bananas"); // adds element at the end of the array
 
-// fruits.unshift("Berries");
+fruits.unshift("Berries"); // adds element at the beginning of the array
 
-// fruits.pop();
+fruits.pop(); // removes the last element
 
-// console.log(Array.isArray(fruits));
+// console.log(Array.isArray(fruits)); // checks whether it is an array or not
 
-// console.log(fruits.indexOf('Mangoes'));
+// console.log(fruits.indexOf("Mangoes"));
 
 // console.log(fruits);
 
@@ -158,8 +162,11 @@ let onCrease = "Omer",
 
 // console.log("----- OBJECTS -----");
 
+// Objects are Key-Value based
+
 const person = {
   name: "Omer",
+  isMarried: false,
   age: 22,
   hobbies: ["Mobile dev", "Cooking", "Eat"],
   address: {
@@ -175,9 +182,7 @@ const person = {
 
 // console.log(person);
 
-// console.log(person.name);
-
-// console.log(person.hobbies);
+// console.log(person.hobbies); // key
 
 // console.log(person.address);
 
@@ -265,13 +270,11 @@ const todos = [
   },
 ];
 
-// console.table(todos);
-
 // console.log(todos);
 
 // console.log(JSON.stringify(todos));
 
-// console.log(todos[1].task, todos[1].isCompleted);
+// console.log(todos[1].task, todos[1].isCompleted, todos[0].id);
 
 /* LOOPS */
 
@@ -295,7 +298,7 @@ while (i < 10) {
 // Looping arrays
 
 for (let i = 0; i < todos.length; i++) {
-  // console.log(todos[i].task);
+  // console.log(todos[i]);
 }
 
 // for of loop (loops over iterables only i.e. Array, Strings, Maps etc.)
