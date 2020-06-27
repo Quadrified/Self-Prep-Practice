@@ -1,4 +1,4 @@
-console.log("----- BRAD & WES JS TUTORIAL -----");
+console.log('----- BRAD & WES JS TUTORIAL -----');
 
 const x = null;
 
@@ -21,7 +21,7 @@ const x = null;
 
 // String Properties & Methods
 
-const s = "Omer Quadri";
+const s = 'Omer Quadri';
 
 // console.log(s.length);
 
@@ -58,17 +58,17 @@ const s = "Omer Quadri";
 
 // console.log("----- ARRAYS -----");
 
-const fruits = ["Apples", "Mangoes", "Oranges"];
+const fruits = ['Apples', 'Mangoes', 'Oranges'];
 
 // console.log(fruits[1]);
 
-fruits[3] = "Grapes";
+fruits[3] = 'Grapes';
 
-fruits.push("Bananas");
+fruits.push('Bananas');
 
-fruits.unshift("Berries");
+fruits.unshift('Berries');
 
-fruits.shift("Berries");
+fruits.shift('Berries');
 
 fruits.pop();
 
@@ -81,14 +81,16 @@ fruits.pop();
 // Array.from() --> Converts array-ish elements like NodeList to actual arrays
 // DOM elements are array-ish and belong to NodeList
 
-const people = document.querySelectorAll("p");
+const people = document.querySelectorAll('p');
 
 // console.log(people);
 
-const peopleArray = Array.from(people, (people) => {
-  // console.log(people); // Gives p tags
-  return people.textContent; // Returns Text in the p tags
-});
+const peopleArray = Array.from(
+  people,
+  (people) =>
+    // console.log(people); // Gives p tags
+    people.textContent // Returns Text in the p tags
+);
 
 // console.log(peopleArray);
 
@@ -118,7 +120,7 @@ const filteredAdults = peopleAge.filter((age) => age > 18);
 
 // Destructuring arrays
 
-const details = ["Omer", 22, "@quadrified"];
+const details = ['Omer', 22, '@quadrified'];
 
 const [Fname, id, socialHandle] = details;
 
@@ -126,15 +128,15 @@ const [Fname, id, socialHandle] = details;
 
 // Destructuring an Array from a String
 
-const item = "OreoShake, Shakes, 200";
+const item = 'OreoShake, Shakes, 200';
 
-const [itemName, category, price] = item.split(",");
+const [itemName, category, price] = item.split(',');
 
 // console.log(itemName, category, price);
 
 // Destructuring when there are more values in the array than you want to destructure : we use rest (...values) operator for remaining values
 
-const team = ["Omer", "Saboor", "Farhan", "Wasay", "Ibrahim"];
+const team = ['Omer', 'Saboor', 'Farhan', 'Wasay', 'Ibrahim'];
 
 const [Captain, viceCaptain, ...restPlayers] = team;
 
@@ -142,8 +144,8 @@ const [Captain, viceCaptain, ...restPlayers] = team;
 
 // Swapping with Destructuring
 
-let onCrease = "Omer",
-  offCrease = "Quadri";
+let onCrease = 'Omer';
+let offCrease = 'Quadri';
 
 // console.log(onCrease, offCrease);
 
@@ -156,17 +158,17 @@ let onCrease = "Omer",
 // console.log("----- OBJECTS -----");
 
 const person = {
-  name: "Omer",
+  name: 'Omer',
   age: 22,
-  hobbies: ["Mobile dev", "Cooking", "Eat"],
+  hobbies: ['Mobile dev', 'Cooking', 'Eat'],
   address: {
-    street: "Maruthi Nagar",
-    city: "Hyderabad",
+    street: 'Maruthi Nagar',
+    city: 'Hyderabad',
   },
   social: {
-    github: "github.com/Quadrified",
-    instagram: "instagram.com/Quadrified",
-    facebook: "facebook.com/Quadrified",
+    github: 'github.com/Quadrified',
+    instagram: 'instagram.com/Quadrified',
+    facebook: 'facebook.com/Quadrified',
   },
 };
 
@@ -197,7 +199,7 @@ const {
 
 // Adding new prop in object
 
-person.email = "omerquadri@gmail.com";
+person.email = 'omerquadri@gmail.com';
 
 // console.log(person);
 
@@ -242,22 +244,22 @@ const { USD, GBP, AUD } = currencyConverter(100); // We get direct converted val
 const todos = [
   {
     id: 1,
-    task: "Start JS tutorial",
+    task: 'Start JS tutorial',
     isCompleted: true,
   },
   {
     id: 2,
-    task: "Complete JS tutorial",
+    task: 'Complete JS tutorial',
     isCompleted: false,
   },
   {
     id: 3,
-    task: "Complete Wes JS tutorial",
+    task: 'Complete Wes JS tutorial',
     isCompleted: false,
   },
   {
     id: 4,
-    task: "Complete Array method tutorial",
+    task: 'Complete Array method tutorial',
     isCompleted: false,
   },
 ];
@@ -300,7 +302,7 @@ for (let i = 0; i < todos.length; i++) {
 // for an array for of loop returns the values as asked
 // Can use break, continue
 
-for (let todo of todos) {
+for (const todo of todos) {
   //   console.log(todo.task); // returns the tasks
   // console.log(todo); // returns the whole object
 }
@@ -308,9 +310,9 @@ for (let todo of todos) {
 // for of with Object
 
 const pizza = {
-  size: "Medium",
-  toppings: ["Jalapeno", "Olives", "Tomatoes"],
-  cheeseType: "Mozzarella",
+  size: 'Medium',
+  toppings: ['Jalapeno', 'Olives', 'Tomatoes'],
+  cheeseType: 'Mozzarella',
 };
 
 // console.log(pizza);
@@ -326,7 +328,7 @@ for (const val of Object.entries(pizza)) {
 // let arrPizza = Object.entries(pizza);
 // console.log(arrPizza)
 
-const myName = "Omer Quadri";
+const myName = 'Omer Quadri';
 
 // for a string for of loop returns each and every character
 
@@ -379,8 +381,8 @@ const addOne = (n1) => n1 + 100;
 
 // console.log(addOne(5));
 
-const names = ["Taha", "Omer", "Mohammed"];
-const race = "100m dash";
+const names = ['Taha', 'Omer', 'Mohammed'];
+const race = '100m dash';
 
 const fullNames = names.map((name) => `${name} Quadri`);
 
@@ -414,8 +416,8 @@ const srCitizen = ages.filter((age) => age >= 60);
 
 // Spread Operator (...item) ---> Concatenates or adds or copies the items, we use it when we need to copy someting in a new variable
 
-const veg = ["Daal", "Paneer Masala", "Veg Manchuria"];
-const nonveg = ["Chicken Masala", "Mutton Masala", "Chicken Manchuria"];
+const veg = ['Daal', 'Paneer Masala', 'Veg Manchuria'];
+const nonveg = ['Chicken Masala', 'Mutton Masala', 'Chicken Manchuria'];
 
 // TO create One unified menu with both the categories
 
@@ -424,15 +426,15 @@ const menu = [...veg, ...nonveg];
 // console.log(menu);
 
 const splMenu = [...menu];
-splMenu.push("Rabdi");
+splMenu.push('Rabdi');
 
 // console.log(splMenu);
 
 const comments = [
-  { id: 12, text: "Hello" },
-  { id: 123, text: "Hello World" },
-  { id: 1234, text: "Bye" },
-  { id: 12345, text: "Bye World" },
+  { id: 12, text: 'Hello' },
+  { id: 123, text: 'Hello World' },
+  { id: 1234, text: 'Bye' },
+  { id: 12345, text: 'Bye World' },
 ];
 
 const commentId = 1234;
@@ -460,7 +462,7 @@ arrayOne.push(...arrayTwo);
 
 // console.log(arrayOne);
 
-const visitorName = ["Omer", "Quadri"];
+const visitorName = ['Omer', 'Quadri'];
 
 greetMe = (first, last) => {
   // alert(`Hey there, ${first} ${last}!`);
@@ -470,17 +472,16 @@ greetMe(...visitorName); // Spreading the array
 
 // Rest Operator ---> packs all elements into the array, used in spreading into a function and destructuring
 
-lengthConverter = (stdLength, ...lengths) => {
+lengthConverter = (stdLength, ...lengths) =>
   // We use map because the (...) rest operator converts all the values passed as arguments into array so we map over the array.
 
-  return lengths.map((length) => stdLength * length);
+  lengths.map((length) => stdLength * length);
 
-  // return stdLength * length; // NaN
-};
+// return stdLength * length; // NaN
 
 // console.log(lengthConverter(1000, 2, 4, 5, 6));
 
-const student = ["Omer Quadri", 160315737022, 75, 73, 71];
+const student = ['Omer Quadri', 160315737022, 75, 73, 71];
 
 // const [studName, roll, marks] = student; // Normal destructuring
 
@@ -500,14 +501,14 @@ newPromise
   .then((response) => console.log(response))
   .catch((error) => console.log(error));
 
-const postPromise = fetch("https://jsonplaceholder.typicode.com/posts/");
+const postPromise = fetch('https://jsonplaceholder.typicode.com/posts/');
 
 // console.log(postPromise);
 
 postPromise
   .then((response) => response.json())
   .then((response) => {
-    let limit = 10;
+    const limit = 10;
     const posts = response.filter((response) => response.id <= limit); // Only 10
     // console.log(posts);
   })
@@ -515,13 +516,11 @@ postPromise
 
 // Working with multiple Promises
 
-const posts = fetch("https://jsonplaceholder.typicode.com/posts/");
-const users = fetch("https://jsonplaceholder.typicode.com/users/");
+const posts = fetch('https://jsonplaceholder.typicode.com/posts/');
+const users = fetch('https://jsonplaceholder.typicode.com/users/');
 
 Promise.all([posts, users])
-  .then((responses) => {
-    return Promise.all(responses.map((res) => res.json()));
-  })
+  .then((responses) => Promise.all(responses.map((res) => res.json())))
   .then((res) => {
     // console.log(res);
   });
@@ -580,7 +579,7 @@ Promise.all([posts, users])
 function breathe(amount) {
   return new Promise((resolve, reject) => {
     if (amount < 500) {
-      reject("Too low!");
+      reject('Too low!');
     }
     setTimeout(() => resolve(`Done for ${amount} ms`), amount);
   });
@@ -607,11 +606,7 @@ function breathe(amount) {
 
 // go();
 
-catchError = (fn) => {
-  return (...args) => {
-    return fn(...args).catch((err) => console.log(err));
-  };
-};
+catchError = (fn) => (...args) => fn(...args).catch((err) => console.log(err));
 
 const go = async (name) => {
   console.log(`START for ${name}`);
@@ -625,7 +620,7 @@ const go = async (name) => {
   console.log(res4);
   const res5 = await breathe(800);
   console.log(res5);
-  console.log("END");
+  console.log('END');
 };
 
 const wrappedFunction = catchError(go);
@@ -635,8 +630,8 @@ const wrappedFunction = catchError(go);
 // Waiting for multiple Promises
 
 const getUsers = async () => {
-  const posts = fetch("https://jsonplaceholder.typicode.com/posts/");
-  const users = fetch("https://jsonplaceholder.typicode.com/users/");
+  const posts = fetch('https://jsonplaceholder.typicode.com/posts/');
+  const users = fetch('https://jsonplaceholder.typicode.com/users/');
 
   // waiting for them to come back
   const res = await Promise.all([posts, users]); // returns responses for both
@@ -659,17 +654,16 @@ const getData = async (names) => {
 
 // Promisifying callback functions
 
-const getGeoLocation = () => {
-  return new Promise((resolve, reject) => {
+const getGeoLocation = () =>
+  new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
-};
 
 const getLocation = async () => {
-  console.log("Starting");
+  console.log('Starting');
   const pos = await getGeoLocation();
   console.log(pos);
-  console.log("Finishing");
+  console.log('Finishing');
 };
 
 getLocation();
