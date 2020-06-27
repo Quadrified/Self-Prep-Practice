@@ -490,7 +490,7 @@ const [studName, roll, ...marks] = student;
 
 // console.log(studName, roll, marks); // Returns rest values
 
-// Promises
+/* Promises */
 
 const newPromise = new Promise((resolve, reject) => {
   // reject("Hello");
@@ -538,3 +538,138 @@ Promise.all([posts, users])
 //   video.load();
 //   video.play();
 // });
+
+// function breathe(amount) {
+//   return new Promise((resolve, reject) => {
+//     if (amount < 500) {
+//       reject("Too low!");
+//     }
+//     setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+//   });
+// }
+
+// breathe(1000)
+//   .then((res) => {
+//     console.log(res);
+//     return breathe(2000);
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return breathe(200);
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return breathe(200);
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return breathe(5000);
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return breathe(200);
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return breathe(2000);
+//   })
+//   .catch((err) => console.log(err));
+
+/* ASYNC/AWAIT */
+
+function breathe(amount) {
+  return new Promise((resolve, reject) => {
+    if (amount < 500) {
+      reject("Too low!");
+    }
+    setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+  });
+}
+
+// const go = async () => {
+//   try {
+//     console.log("START");
+//     const res = await breathe(1000);
+//     console.log(res);
+//     const res2 = await breathe(2000);
+//     console.log(res2);
+//     const res3 = await breathe(500);
+//     console.log(res3);
+//     const res4 = await breathe(300);
+//     console.log(res4);
+//     const res5 = await breathe(500);
+//     console.log(res5);
+//     console.log("END");
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+// go();
+
+catchError = (fn) => {
+  return (...args) => {
+    return fn(...args).catch((err) => console.log(err));
+  };
+};
+
+const go = async (name) => {
+  console.log(`START for ${name}`);
+  const res = await breathe(1000);
+  console.log(res);
+  const res2 = await breathe(700);
+  console.log(res2);
+  const res3 = await breathe(500);
+  console.log(res3);
+  const res4 = await breathe(600);
+  console.log(res4);
+  const res5 = await breathe(800);
+  console.log(res5);
+  console.log("END");
+};
+
+const wrappedFunction = catchError(go);
+
+// wrappedFunction("Omer"); // Passing args in the wrapped higher function
+
+// Waiting for multiple Promises
+
+const getUsers = async () => {
+  const posts = fetch("https://jsonplaceholder.typicode.com/posts/");
+  const users = fetch("https://jsonplaceholder.typicode.com/users/");
+
+  // waiting for them to come back
+  const res = await Promise.all([posts, users]); // returns responses for both
+  const data = res.map((res) => res.json());
+  const [post, user] = await Promise.all(data);
+  // console.log(post, user);
+};
+
+getUsers();
+
+const getData = async (names) => {
+  const promises = names.map((name) =>
+    fetch(`http://api.github.com/users/${name}`).then((r) => r.json())
+  );
+  const [quadrified, abdus] = await Promise.all(promises);
+  console.log(quadrified, abdus);
+};
+
+// getData(["quadrified", "abdussaboor98"]);
+
+// Promisifying callback functions
+
+const getGeoLocation = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const getLocation = async () => {
+  console.log("Starting");
+  const pos = await getGeoLocation();
+  console.log(pos);
+  console.log("Finishing");
+};
+
+getLocation();
