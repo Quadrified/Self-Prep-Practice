@@ -68,6 +68,8 @@ fruits.push("Bananas");
 
 fruits.unshift("Berries");
 
+fruits.shift("Berries");
+
 fruits.pop();
 
 // console.log(Array.isArray(fruits));
@@ -75,6 +77,44 @@ fruits.pop();
 // console.log(fruits.indexOf('Mangoes'));
 
 // console.log(fruits);
+
+// Array.from() --> Converts array-ish elements like NodeList to actual arrays
+// DOM elements are array-ish and belong to NodeList
+
+const people = document.querySelectorAll("p");
+
+// console.log(people);
+
+const peopleArray = Array.from(people, (people) => {
+  // console.log(people); // Gives p tags
+  return people.textContent; // Returns Text in the p tags
+});
+
+// console.log(peopleArray);
+
+// Array.of() --> creates array with anything passed as argument to of();
+
+const nums = Array.of(12, 22, 21, 33);
+
+// console.log(nums);
+
+// Array.some() --> condition that satisfies for at least one item in array
+
+const peopleAge = [32, 15, 19, 12];
+
+const adults = peopleAge.some((age) => age > 18);
+
+// console.log(adults);
+
+// Array.every() --> condition that satisfies for all items in array
+
+const adult = peopleAge.every((age) => age > 18);
+
+// console.log(adult);
+
+const filteredAdults = peopleAge.filter((age) => age > 18);
+
+// console.log(filteredAdults);
 
 // Destructuring arrays
 
@@ -103,7 +143,7 @@ const [Captain, viceCaptain, ...restPlayers] = team;
 // Swapping with Destructuring
 
 let onCrease = "Omer",
-	offCrease = "Quadri";
+  offCrease = "Quadri";
 
 // console.log(onCrease, offCrease);
 
@@ -111,24 +151,23 @@ let onCrease = "Omer",
 
 // console.log(onCrease, offCrease);
 
-
 /* OBJECTS */
 
 // console.log("----- OBJECTS -----");
 
 const person = {
-	name: "Omer",
-	age: 22,
-	hobbies: ["Mobile dev", "Cooking", "Eat"],
-	address: {
-		street: "Maruthi Nagar",
-		city: "Hyderabad"
-	},
-	social: {
-		github: "github.com/Quadrified",
-		instagram: "instagram.com/Quadrified",
-		facebook: "facebook.com/Quadrified"
-	}
+  name: "Omer",
+  age: 22,
+  hobbies: ["Mobile dev", "Cooking", "Eat"],
+  address: {
+    street: "Maruthi Nagar",
+    city: "Hyderabad",
+  },
+  social: {
+    github: "github.com/Quadrified",
+    instagram: "instagram.com/Quadrified",
+    facebook: "facebook.com/Quadrified",
+  },
 };
 
 // console.log(person);
@@ -148,10 +187,10 @@ const person = {
 // Destructuring
 
 const {
-	name,
-	age,
-	address: { city },
-	hobbies
+  name,
+  age,
+  address: { city },
+  hobbies,
 } = person;
 
 // console.log(name, age, city);
@@ -170,22 +209,22 @@ const { github: git, instagram: insta, facebook: fb } = person.social;
 
 // Object destructuring with variable renaming & default values
 
-const { w: width = 100, h: height = 400 } = { w: 800 };
+const { w: width = 100, h: height = 400 } = { w: 800 }; // uses w: 800
 
 // console.log(width, height);
 
 // Destructuring with functions
 
 function currencyConverter(amt) {
-	// Returns an object with converted currencies
+  // Returns an object with converted currencies
 
-	const converted = {
-		USD: amt * 0.7,
-		GBP: amt * 0.76,
-		AUD: amt * 1.01
-	};
+  const converted = {
+    USD: amt * 0.7,
+    GBP: amt * 0.76,
+    AUD: amt * 1.01,
+  };
 
-	return converted;
+  return converted;
 }
 
 // console.log(currencyConverter(100));
@@ -201,26 +240,26 @@ const { USD, GBP, AUD } = currencyConverter(100); // We get direct converted val
 // console.log("----- ARRAY OF OBJECTS -----");
 
 const todos = [
-	{
-		id: 1,
-		task: "Start JS tutorial",
-		isCompleted: true
-	},
-	{
-		id: 2,
-		task: "Complete JS tutorial",
-		isCompleted: false
-	},
-	{
-		id: 3,
-		task: "Complete Wes JS tutorial",
-		isCompleted: false
-	},
-	{
-		id: 4,
-		task: "Complete Array method tutorial",
-		isCompleted: false
-	}
+  {
+    id: 1,
+    task: "Start JS tutorial",
+    isCompleted: true,
+  },
+  {
+    id: 2,
+    task: "Complete JS tutorial",
+    isCompleted: false,
+  },
+  {
+    id: 3,
+    task: "Complete Wes JS tutorial",
+    isCompleted: false,
+  },
+  {
+    id: 4,
+    task: "Complete Array method tutorial",
+    isCompleted: false,
+  },
 ];
 
 // console.table(todos);
@@ -238,7 +277,7 @@ const todos = [
 // for loop
 
 for (let i = 0; i < 10; i++) {
-	// console.log(i);
+  // console.log(i);
 }
 
 // while loop
@@ -246,64 +285,86 @@ for (let i = 0; i < 10; i++) {
 let i = 0;
 
 while (i < 10) {
-	// console.log(i);
-	i++;
+  // console.log(i);
+  i++;
 }
 
 // Looping arrays
 
 for (let i = 0; i < todos.length; i++) {
-	// console.log(todos[i].task);
+  // console.log(todos[i].task);
 }
 
 // for of loop (loops over iterables only i.e. Array, Strings, Maps etc.)
 
 // for an array for of loop returns the values as asked
+// Can use break, continue
 
 for (let todo of todos) {
-	// console.log(todo.task); // returns the tasks
-	// console.log(todo); // returns the whole object
+  //   console.log(todo.task); // returns the tasks
+  // console.log(todo); // returns the whole object
 }
+
+// for of with Object
+
+const pizza = {
+  size: "Medium",
+  toppings: ["Jalapeno", "Olives", "Tomatoes"],
+  cheeseType: "Mozzarella",
+};
+
+// console.log(pizza);
+
+// Object to Array
+
+for (const val of Object.entries(pizza)) {
+  // console.log(val);
+}
+
+// let arrPizza = Object.keys(pizza);
+// let arrPizza = Object.values(pizza);
+// let arrPizza = Object.entries(pizza);
+// console.log(arrPizza)
 
 const myName = "Omer Quadri";
 
 // for a string for of loop returns each and every character
 
 for (const char of myName) {
-    // console.log(char);
+  // console.log(char);
 }
 
-// forEach loop
+// forEach loop - takes a function
 
-const ids = todos.forEach(function(todo) {
-	// console.log(todo.id);
+const ids = todos.forEach(function (todo) {
+  // console.log(`${todo.id} is ${todo.task}`);
 });
 
 // map => returns an array back
 
-const tasks = todos.map(function(todo) {
-	return todo.task;
+const tasks = todos.map(function (todo) {
+  return todo.task;
 });
 
 // console.log(tasks);
 
-// filter => returns and array back
+// filter =>turns and array back
 
 const completedTasks = todos
-	.filter(function(todo) {
-		return todo.isCompleted === false;
-	})
-	.map(function(todo) {
-		// tacking on different methods together
-		return todo.task;
-	});
+  .filter(function (todo) {
+    return todo.isCompleted === false;
+  })
+  .map(function (todo) {
+    // tacking on different methods together
+    return todo.task;
+  });
 
 // console.log(completedTasks);
 
 /* FUNCTIONS */
 
 function add(n1, n2) {
-	return n1 + n2;
+  return n1 + n2;
 }
 
 // console.log(add(1, 3));
@@ -314,31 +375,166 @@ const addNum = (n1, n2) => n1 + n2;
 
 // console.log(addNum(1, 3));
 
-const addOne = n1 => n1 + 100;
+const addOne = (n1) => n1 + 100;
 
 // console.log(addOne(5));
 
 const names = ["Taha", "Omer", "Mohammed"];
 const race = "100m dash";
 
-const fullNames = names.map(name => `${name} Quadri`);
+const fullNames = names.map((name) => `${name} Quadri`);
 
 // console.log(fullNames);
 
 // Implicit returning an object literal after taking String as an Input
 
 const whoWon = names.map((name, i) => ({
-	name,
-	race,
-	place: i + 1
+  name,
+  race,
+  place: i + 1,
 }));
 
 // console.table(whoWon);
 
 const ages = [23, 84, 96, 78, 23, 11, 12];
 
-const srCitizen = ages.filter(age => age >= 60);
+const srCitizen = ages.filter((age) => age >= 60);
 
 // console.log(srCitizen);
 
-console.log("Demo benach for git")
+// Array to Object
+
+// const arr = ['Omer', 'hello'];
+// arr.new = 'Quadri'
+// console.log(arr)
+
+// let arrObj = {...arr};
+
+// console.log(arrObj)
+
+// Spread Operator (...item) ---> Concatenates or adds or copies the items, we use it when we need to copy someting in a new variable
+
+const veg = ["Daal", "Paneer Masala", "Veg Manchuria"];
+const nonveg = ["Chicken Masala", "Mutton Masala", "Chicken Manchuria"];
+
+// TO create One unified menu with both the categories
+
+const menu = [...veg, ...nonveg];
+
+// console.log(menu);
+
+const splMenu = [...menu];
+splMenu.push("Rabdi");
+
+// console.log(splMenu);
+
+const comments = [
+  { id: 12, text: "Hello" },
+  { id: 123, text: "Hello World" },
+  { id: 1234, text: "Bye" },
+  { id: 12345, text: "Bye World" },
+];
+
+const commentId = 1234;
+
+const index = comments.find((comment) => comment.id === commentId);
+
+// console.log(index);
+
+const commentIndex = comments.findIndex((index) => index.id === commentId);
+
+const filterArray = [
+  ...comments.slice(0, commentIndex),
+  ...comments.slice(commentIndex + 1),
+];
+
+const filteredArray = comments.filter((comment) => comment.id !== commentId);
+
+// console.log(filteredArray);
+// console.log(filterArray);
+
+const arrayOne = [1, 2, 3, 4];
+const arrayTwo = [5, 6, 7];
+
+arrayOne.push(...arrayTwo);
+
+// console.log(arrayOne);
+
+const visitorName = ["Omer", "Quadri"];
+
+greetMe = (first, last) => {
+  // alert(`Hey there, ${first} ${last}!`);
+};
+
+greetMe(...visitorName); // Spreading the array
+
+// Rest Operator ---> packs all elements into the array, used in spreading into a function and destructuring
+
+lengthConverter = (stdLength, ...lengths) => {
+  // We use map because the (...) rest operator converts all the values passed as arguments into array so we map over the array.
+
+  return lengths.map((length) => stdLength * length);
+
+  // return stdLength * length; // NaN
+};
+
+// console.log(lengthConverter(1000, 2, 4, 5, 6));
+
+const student = ["Omer Quadri", 160315737022, 75, 73, 71];
+
+// const [studName, roll, marks] = student; // Normal destructuring
+
+// console.log(studName, roll, marks); // Does not give the remaining marks, just returns one
+
+const [studName, roll, ...marks] = student;
+
+// console.log(studName, roll, marks); // Returns rest values
+
+// Promises
+
+const newPromise = new Promise((resolve, reject) => {
+  // reject("Hello");
+});
+
+newPromise
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error));
+
+const postPromise = fetch("https://jsonplaceholder.typicode.com/posts/");
+
+// console.log(postPromise);
+
+postPromise
+  .then((response) => response.json())
+  .then((response) => {
+    let limit = 10;
+    const posts = response.filter((response) => response.id <= limit); // Only 10
+    // console.log(posts);
+  })
+  .catch((error) => console.error(error));
+
+// Working with multiple Promises
+
+const posts = fetch("https://jsonplaceholder.typicode.com/posts/");
+const users = fetch("https://jsonplaceholder.typicode.com/users/");
+
+Promise.all([posts, users])
+  .then((responses) => {
+    return Promise.all(responses.map((res) => res.json()));
+  })
+  .then((res) => {
+    // console.log(res);
+  });
+
+// fetch("http://api.github.com/users/quadrified")
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error(error));
+
+// const video = document.querySelector(".video");
+
+// navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream) => {
+//   video.srcObject = mediaStream;
+//   video.load();
+//   video.play();
+// });
