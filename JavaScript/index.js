@@ -491,6 +491,7 @@ console.log(studName, roll, marks); // Returns rest values
 
 /* Promises */
 
+// Creating new promise
 const newPromise = new Promise((resolve, reject) => {
   reject('Hello');
 });
@@ -535,6 +536,8 @@ navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream) => {
   video.load();
   video.play();
 });
+
+// Chaining promises
 
 function breathe(amount) {
   return new Promise((resolve, reject) => {
