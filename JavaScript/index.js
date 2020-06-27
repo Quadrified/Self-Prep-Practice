@@ -652,7 +652,7 @@ const getData = async (names) => {
 
 getData(['quadrified', 'abdussaboor98']);
 
-// Promisifying callback functions
+// Promisifying callback functions 
 
 const getGeoLocation = () =>
   new Promise((resolve, reject) => {
