@@ -1,0 +1,179 @@
+/* Reset */
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+  background-color: #f4f4f4;
+  color: #555555;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+
+  /* Same as above (font-weight, font-size, font-family)*/
+  font: normal 16 Verdana, Geneva, Tahoma, sans-serif;
+
+  line-height: 1.6em; /*em for line height and responsiveness*/
+
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: red;
+}
+
+a:active {
+  color: green;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+}
+
+.button:hover {
+  background-color: rosybrown;
+}
+
+.clr {
+  clear: both;
+}
+
+.box-1 {
+  background-color: #333;
+  color: #fff;
+  border: 5px red solid;
+  border-width: 3px;
+  border-bottom-width: 10px;
+  border-top-style: dotted;
+
+  padding: 20px;
+
+  margin: 50px 0px;
+}
+
+.box-1 h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  word-spacing: 0.3em;
+}
+
+.box-2 {
+  border: 3px dotted;
+  padding: 50px;
+  margin: 20px;
+}
+
+.categories {
+  border: 1px #ccc solid;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.categories h2 {
+  text-align: center;
+}
+
+.categories ul {
+  padding: 0;
+  list-style: none;
+  padding-left: 10px;
+}
+
+.categories li {
+  padding-bottom: 8px;
+  border-bottom: dotted 1px #333;
+  /* list-style-image: url('/assets/checkmark.png'); */
+  list-style-type: square;
+}
+
+.my-form {
+  padding: 20px;
+}
+
+.form-group {
+  padding-bottom: 15px;
+}
+
+.my-form label {
+  display: block;
+}
+
+.my-form input[type='text'],
+.my-form textarea {
+  padding: 8px;
+  width: 100%;
+}
+
+.block {
+  float: left;
+  width: 33.3%;
+  border: 1px dotted;
+  box-sizing: border-box;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+#main-block {
+  float: left;
+  width: 70%;
+}
+#side-bar {
+  float: right;
+  width: 30%;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.p-box {
+  color: #fff;
+  width: 800px;
+  height: 500px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  position: relative;
+  background-image: url('./assets/Screenshot\ 2020-06-10\ at\ 6.31.32\ PM.png');
+  background-position: 100px 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.p-box h1 {
+  position: absolute;
+  top: 100px;
+}
+
+.my-list li:first-child{
+    background: red;
+}
+
+.my-list li:last-child{
+    background: blue;
+}
+
+.my-list li:nth-child(even){
+    background: #000;
+}
