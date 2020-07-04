@@ -67,6 +67,22 @@ Index for all the topics in ```index.js```
   - Regular functions
   - Arrow functions
     - Implicit returning an object literal after taking String as an Input
-   
-   
+    
+## Spread operator
+- Merging two arrays into one new array using spread operator
+
+## Rest operator
+- Using rest operator in function
+- Using rest operator in destructuring
+
+## Promises
+- Creating new promise
+- Working with multiple Promises
+- Chaining promises
+
+## Async/Await
+- Using Promise to create async/await
+- Catching errors in Async/Await
+- Waiting for multiple Promises
+- Promisifying callback functions 
    

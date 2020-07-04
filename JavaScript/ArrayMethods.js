@@ -16,7 +16,8 @@ console.log('----- ARRAY METHODS -----');
     slice()
     splice()
     find()
+    findIndex()
     split()
     entries()
     keys()
-*/ 
+*/
