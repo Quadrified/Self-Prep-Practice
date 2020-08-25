@@ -1,161 +1,216 @@
-export {};
-let message = "Hello, Quadri!";
-// console.log(message);
+/* ------------------------------------
+TypeScript Types
+TS type assertion or Type casting
+Type inference
+Union of types - MultiType
+Function
+Interfaces
+Classes and Access Modifiers
+------------------------------------*/
 
-// Declerations, Var types, Arrays, tuple, enums, any, Interfaces, Classes 
+/* ------------------------------------
+TypeScript Types 
+------------------------------------*/
+// Types - number, string, boolean, any, null, undefined
 
-// Variable types - boolean, number, string, null, undefined, tuple, enum, any
+let number: number = 10;
+let string: string = '10';
+let boolean: boolean = true;
+let any: any;
+let n: null = null;
+let u: undefined = undefined;
+let numberArray: number[]; // Number array
+let anyArray: any[] = [1, true, 'Omer'];
+let uknown: unknown; // like any but cannot access unknown value
 
-let isBeginner: boolean = true;
-let total: number = 0;
-let name: string = "Omer";
-
-// name = true; // Error
-
-let sentence: string = `My name is ${name}
-I am a beginner in TypeScript`;
-
+let sentence: string = `The number is ${number} and string is ${string} and boolean is ${boolean}`;
 // console.log(sentence);
 
-// Assigned to boolean or number or string
+// Enums
+enum ColorEnum {
+    Red = 1,
+    Green = 2,
+    Blue = 3,
+} // enum datatype with explicit values
+// console.log(ColorEnum);
 
-let n: null = null;
+// Tuple - The number of elements in array are fixed and also the order of types is fixed
+let person: [string, number] = ['Omer', 22];
 
-let u: undefined = undefined;
+/* ------------------------------------
+TS types assertion or Type casting
+------------------------------------*/
+let message;
+message = 'abc'; // initializing the message varible of type 'any'
 
-let isNew: boolean = null;
-let newName: string = undefined;
+let endsWithC = (<string>message).toLowerCase(); // type assertion for a variable declared but not initialized to anything
 
-// Array 
+let endsWithCAlternate = (message as string).toUpperCase(); // alternate type assertion
 
-let arrayList: number[] = [1, 2, 3];
-let arrayList2: Array<number> = [1, 2, 3];
+/* ------------------------------------
+TS inference 
+------------------------------------*/
+// TS infers the type of variable declared bason the value initialized for the variable
 
-// Tuple
+let value; // type - any || we can initiate any value to the variable value
+value = 10;
+value = true;
+value = 'Omer';
 
-let person1: [string, number] = ["Omer", 22]; // Fixed number of types and fixed position
+let initializedValue = 10; // type - number infered by TS and cannot be initialized to value other than number
+// initializedValue = true; // error
+// initializedValue = 'Omer'; // error
 
-// enum - creates data types
+/* ------------------------------------
+Union of types
+------------------------------------*/
+// To use 2 types on a variable
 
-enum color {
-	Red,
-	Blue,
-	Green,
-}
+let multiType: string | number;
+multiType = 'Omer';
+multiType = 22;
 
-let c: color = color.Blue;
+/**
+ any vs union
+ 1. union restricts the variable type to only the specified types. || any does not restrict reassigning of variable to other types
+ 2. intellisense support is available for Union || No intellisense for any type
+ */
 
-// console.log(c);
+/* ------------------------------------
+Functions
+------------------------------------*/
 
-// any
+let myMessage = 'Omer';
+let log = function (myMessage) {
+    // console.log(myMessage);
+};
 
-let randomValue: any;
-randomValue = true;
-randomValue = "Quadri";
+let arrowFunction = (myMessage) => {
+    // console.log(myMessage);
+};
+log(myMessage);
+arrowFunction(myMessage);
 
-// console.log(randomValue);
+let a = 10,
+    b = 20;
 
-let myVar: any = 10;
+let addFunction = function (a: number, b: number) {
+    return a + b;
+};
 
-// console.log(myVar.name); // no error because of any type
-// myVar();
-// (myVar as string).toUpperCase(); // typecasting
+addFunction(1, 5);
+// addFunction('O', 'Q'); // error since parameters are of type number
+// console.log(addFunction(a, b));
 
-// Union types
+// Optional parameters - the order of optional parameters is important
+let add = function (a: number, b?: number) {
+    return a + b;
+};
+add(1);
+add(1, 4);
 
-let multiType: number | boolean;
+// Default parameters - assigining values explicitly
+let addDefault = function (a: number, b: number = 10) {
+    return a + b;
+};
 
-multiType = true;
+addDefault(2);
+// console.log(addDefault(10, 30)); // Overrrides the variable b = 10 to b = 30
 
-multiType = 30;
+/* ------------------------------------
+Interfaces
+------------------------------------*/
+// Declaring object as a type
 
-// functions
-
-function add(n1: number, n2: number): number {
-	return n1 + n2;
-}
-
-// console.log(add(1, 5));
-
-// Optional params
-
-function addOne(n1: number, n2?: number): number {
-	if (n2) {
-		return +n2;
-	} else return n1;
-}
-
-addOne(6);
-
-// Default params
-
-function addDef(n1: number, n2: number = 16): number {
-	if (n2) {
-		return +n2;
-	} else return n1;
-}
-
-addDef(2);
-
-// Interfaces
-
-function fullName(person: { fName: string; lName: string }) {
-	// console.log(`${person.fName} ${person.lName}`);
+// The old way and not much robust
+function fullName(person: { firstName: string; lastName: string }) {
+    // console.log(`${person.firstName} ${person.lastName}`);
 }
 
 let p = {
-	fName: "Omer",
-	lName: "Quadri",
+    firstName: 'Omer',
+    lastName: 'Quadri',
 };
 
 fullName(p);
 
+// Defining the interface
 interface Person {
-	fName: string;
-	lName: string;
+    firstName: string;
+    lastName: string;
 }
 
+// Defining the function that will use the Interface
 function fullNameInterface(person: Person) {
-	console.log(`${person.fName} ${person.lName}`);
+    // console.log(`${person.firstName} ${person.lastName}`);
 }
 
-let pInterface = {
-	fName: "Omer",
-	lName: "Quadri",
+// Declaring the object to be passed in as parameter
+// The order of variables declared in Interface are importan while writing the object
+
+let personInterfaceObject = {
+    firstName: 'Omer',
+    lastName: 'Quadri',
 };
 
-// fullNameInterface(pInterface);
+// Pasing the object as an argument to the function
+fullNameInterface(personInterfaceObject);
 
-// Classes
+interface Address {
+    street: string;
+    city: string;
+    country: string;
+    zipCode?: number; // optional values for example to use in a form where not all values are mandatory
+}
+
+function AddressInterfaceMethod(address: Address) {
+    // console.log(`${address.city}, ${address.country}, ${address.street}, ${address.zipCode}`)
+}
+
+let AddressInterfaceObject = {
+    street: 'Maruti Nagar',
+    city: 'Hyderabad',
+    country: 'India',
+    zipCode: 500059,
+};
+
+AddressInterfaceMethod(AddressInterfaceObject);
+
+/* ------------------------------------
+Classes and Access Modifiers
+------------------------------------*/
 
 class Employee {
-	eName: string;
+    public employeeName: string; // cann be used throughout the program
+    // private employeeName: string; // gives error when used outside this class or in a derived class
+    // protected employeeName: string; // can be used in derived class and in this class
 
-	constructor(name: string) {
-		this.eName = name;
-	}
+    constructor(name: string) {
+        this.employeeName = name;
+    }
 
-	greet() {
-		console.log(`Good Afternoon, ${this.eName}`);
-	}
+    greet() {
+        console.log(`Hello, ${this.employeeName}`);
+    }
 }
 
-let emp1 = new Employee("Omer Quadri");
-console.log(emp1.eName);
-emp1.greet();
+let employee1 = new Employee('Omer');
+
+console.log(employee1.employeeName);
+employee1.greet();
 
 class Manager extends Employee {
-	constructor(mName: string) {
-		super(mName);
-	}
 
-	greetManager() {
-		console.log(`The new Manager is`);
-	}
+    constructor(managerName: string) {
+        super(managerName);
+    }
+
+    delegateWork() {
+        console.log(`Manager delegating tasks`);
+    }
 }
 
-let m1 = new Manager("Taha");
-m1.greetManager();
+let m1 = new Manager('Bruce');
+m1.delegateWork();
 m1.greet();
-
-console.log(m1.eName);
+console.log(m1.employeeName);
