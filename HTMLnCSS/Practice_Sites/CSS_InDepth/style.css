@@ -1,0 +1,210 @@
+/* ------------------------------------
+Styles for CSS In-Depth
+------------------------------------*/
+
+/* h2:hover {
+  color: tomato;
+}
+
+/* .subtitle {
+  color: teal;
+} */
+
+/*#contact-us {
+  color: steelblue;
+}
+
+#services {
+  color: violet;
+} */
+
+/* ------------------------------------
+ pseudoselectors
+------------------------------------ */
+
+/* li:first-child{
+    color: turquoise;
+} */
+
+/* li:nth-child(2){
+    color: turquoise;
+} */
+
+/* li:only-child {
+  color: turquoise;
+}
+
+td:only-child{
+    color: purple;
+} */
+
+/* #google-link:link {
+    color: blue;
+}
+
+#google-link:visited {
+    color: blueviolet;
+} */
+
+/* ------------------------------------
+Basic-Advanced 
+------------------------------------*/
+
+/* h2 + a {
+    color: rgb(202, 18, 178);
+}
+
+textarea ~ button {
+    color: brown;
+} */
+
+/* ul > li {
+    color: burlywood;
+}
+
+ul li {
+    color: cadetblue;
+} */
+
+/* ------------------------------------
+Attribute-selectors 
+------------------------------------*/
+
+/* h2[class=subtitle] {
+    color: teal;
+} */
+
+/* ^ = Every single image starts by "../../assets/" */
+
+/* img[src^="../../assets/"]{
+    width: 50%;
+    border: black dashed 3px;
+} */
+
+/* $ = Every single image ends with "../../assets/" */
+
+/* img[src$="../../assets/"]{
+    width: 50%;
+    border: black solid 3px;
+} */
+
+/* '*' = Every single image everywhere with "../../assets/" */
+
+/* img[src*="../../assets/"]{
+    width: 50%;
+    border: black solid 3px;
+} */
+
+/* h2[class~=article-subtitle]{
+    background: greenyellow;
+}
+
+h2[class|=article-subtitle]{
+    background: greenyellow;
+} */
+
+/* ------------------------------------
+Colors,
+Background properties,
+Gradients,
+Font units,
+Text manipulation,
+Font manipulation,
+Font familes,
+Using external fonts,
+Box model props
+------------------------------------*/
+
+body {
+  /* background-color: rgb(244, 244, 244); */
+  /* background-color: rgba(250, 72, 149, 0.2); */
+
+  /* background-image: url('https://www.burchcom.com/wp-content/uploads/2019/01/images1997-5c2f99436aa28-1024x683.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 247, 186),
+    rgba(224, 247, 186, 0.6)
+  );
+
+  /* text-transform: uppercase; */
+  /* text-align: justify; */
+  /* line-height: 1.3em; */
+  /* letter-spacing: 0.2em;
+  word-spacing: 1em; */
+
+  font-size: 1.023em;
+
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+
+  font-family: 'Nato Sans', sans-serif;
+}
+
+#title {
+  color: rgb(12, 101, 153);
+  /* font-weight: 700; */
+  font-family: 'ZCOOL XiaoWei', serif;
+  text-align: center;
+}
+
+.subtitle {
+  color: rgb(91, 181, 220);
+  font-family: 'Charmonman', cursive;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+#italics {
+  color: violet;
+  /* font-style: italic; */
+}
+
+#grad {
+  width: 30vw;
+  height: 400px;
+
+  /* background: linear-gradient(to bottom right, rgb(20, 186, 23), rgba(20, 186, 23, 0.4)); */
+
+  /* background: linear-gradient(180deg, rgb(20, 186, 23), rgba(20, 186, 23, 0.4)); */
+
+  background: radial-gradient(circle, red 20%, blue 40%, green 50%);
+
+  border: 10px dashed red;
+
+  /* float: right; */
+}
+
+.google-link {
+  text-decoration: none;
+  /* float: right; */
+  display: block;
+}
+
+#about-me {
+  float: right;
+  /* display: none; */
+
+  width: 35vw;
+  height: 300px;
+  
+  padding: 20px;
+  margin: 40px;
+
+  border: 10px solid steelblue;
+}
+
+#img {
+  float: none;
+  display: block;
+  width: 30%;
+  height: 300px;
+
+  border: 10px dotted rgb(10, 150, 13);
+}
+
+#table{
+  display: none;
+}
