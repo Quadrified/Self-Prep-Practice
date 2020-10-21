@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, Platform} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 
 const AppText = (props) => {
   console.log(props);
@@ -8,8 +8,9 @@ const AppText = (props) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 20,
-    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
+    color: 'tomato',
+    fontSize: 40,
+    fontFamily: 'Avenir',
   },
 });
 
