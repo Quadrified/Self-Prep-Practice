@@ -16,7 +16,7 @@ const App = () => {
         flexDirection: 'row',
       }}>
       <Icon name="android" size={60} color="green" />
-      <AppText name={'Omer'}>Android 11</AppText>
+      <AppText name={'Omer'}>Android 11 </AppText>
     </View>
   );
 };
