@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import colors from '../configs/colors';
-import color from '../configs/colors';
+import AppButton from '../components/AppButton';
 
 class WelcomeScreen extends Component {
+  onPress = () => {
+    console.log('Tapped on HS');
+  };
   render() {
     return (
       <ImageBackground
+        blurRadius={3}
         style={styles.background}
         source={require('../assets/background.jpg')}>
         <View style={styles.logoContainer}>
@@ -14,10 +25,17 @@ class WelcomeScreen extends Component {
             style={styles.logo}
             source={require('../assets/logo-red.png')}
           />
-          <Text>Sell what you don't need!</Text>
+          <Text style={styles.tagLine}>Sell what you don't need!</Text>
         </View>
-        <View style={styles.loginButton}></View>
-        <View style={styles.registerButton}></View>
+
+        <View style={styles.buttonContainer}>
+          <AppButton title="Login" onPress={this.onPress} color="primary" />
+          <AppButton
+            title="Register"
+            onPress={this.onPress}
+            color="secondary"
+          />
+        </View>
       </ImageBackground>
     );
   }
@@ -29,25 +47,25 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  loginButton: {
-    width: '100%',
-    height: 70,
-    backgroundColor: colors.primary,
-  },
-  registerButton: {
-    width: '100%',
-    height: 70,
-    backgroundColor: colors.secondary,
-  },
   logo: {
     width: 100,
     height: 100,
     bottom: 20,
   },
+  tagLine: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    paddingVertical: 10,
+    fontFamily: 'Roboto',
+  },
   logoContainer: {
     position: 'absolute',
     top: 70,
     alignItems: 'center',
+  },
+  buttonContainer: {
+    padding: 20,
+    width: '100%',
   },
 });
 

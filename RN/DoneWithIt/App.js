@@ -5,18 +5,22 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import AppText from './app/components/AppText';
+import AppButton from './app/components/AppButton';
+import Card from './app/components/Card';
 
 const App = () => {
   return (
     <View
       style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
+        backgroundColor: '#f8f4f4',
+        padding: 20,
+        paddingTop: 100,
       }}>
-      <Icon name="android" size={60} color="green" />
-      <AppText name={'Omer'}>Android 11</AppText>
+      <Card
+        title="Red Jacket for sale"
+        subTitle="$100"
+        image={require('./app/assets/jacket.jpg')}
+      />
     </View>
   );
 };
