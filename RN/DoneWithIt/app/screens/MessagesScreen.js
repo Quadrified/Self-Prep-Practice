@@ -35,19 +35,18 @@ const messages = [
     image: require('../assets/mosh.jpg'),
   },
 ];
+
+({item}) => (
+  <ListingItem title={item.title} subTitle={item.desc} image={item.image} />
+);
+
 function MessagesScreen(props) {
   return (
     <SafeAreaView style={styles.screen}>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
-        renderItem={({item}) => (
-          <ListingItem
-            title={item.title}
-            subTitle={item.desc}
-            image={item.image}
-          />
-        )}
+        renderItem={renderItem}
       />
     </SafeAreaView>
   );
