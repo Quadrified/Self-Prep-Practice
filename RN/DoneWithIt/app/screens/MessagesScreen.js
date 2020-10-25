@@ -36,7 +36,7 @@ const messages = [
   },
 ];
 
-({item}) => (
+const renderItem = ({item}) => (
   <ListingItem title={item.title} subTitle={item.desc} image={item.image} />
 );
 
