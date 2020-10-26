@@ -1,17 +1,25 @@
+import {Color} from 'chalk';
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, TouchableOpacity, TouchableHighlight} from 'react-native';
+import colors from '../../configs/colors';
 import AppText from '../AppText';
 import styles from './styles';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-function ListingItem({title, subTitle, image}) {
+function ListingItem({title, subTitle, image, onPress, renderRightActions}) {
+  // console.log(title, subTitle, image, onPress);
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image} />
-      <View style={styles.textContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
-      </View>
-    </View>
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+        <View style={styles.container}>
+          <Image style={styles.image} source={image} />
+          <View style={styles.textContainer}>
+            <AppText style={styles.title}>{title}</AppText>
+            <AppText style={styles.subTitle}>{subTitle}</AppText>
+          </View>
+        </View>
+      </TouchableHighlight>
+    </Swipeable>
   );
 }
 

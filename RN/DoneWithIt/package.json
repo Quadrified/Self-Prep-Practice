@@ -13,6 +13,7 @@
     "@react-native-community/hooks": "^2.6.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-gesture-handler": "^1.8.0",
     "react-native-vector-icons": "^7.1.0"
   },
   "devDependencies": {
