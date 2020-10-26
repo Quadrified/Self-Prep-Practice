@@ -17,11 +17,3 @@ const App = () => {
 };
 
 export default App;
-{
-  /**
-   * * Important
-   * ! Warn
-   * TODO: Hello
-   * ? Query
-   */
-}
