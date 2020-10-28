@@ -6,16 +6,24 @@ import AppText from '../AppText';
 import styles from './styles';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-function ListingItem({title, subTitle, image, onPress, renderRightActions}) {
+function ListingItem({
+  title,
+  subTitle,
+  image,
+  onPress,
+  renderRightActions,
+  IconComponent,
+}) {
   // console.log(title, subTitle, image, onPress);
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
-          <Image style={styles.image} source={image} />
+          {IconComponent}
+          {image && <Image style={styles.image} source={image} />}
           <View style={styles.textContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
