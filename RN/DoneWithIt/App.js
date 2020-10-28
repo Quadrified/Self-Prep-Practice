@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, StyleSheet, Text, Platform} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Platform,
+  TextInput,
+  Switch,
+} from 'react-native';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
@@ -13,9 +20,19 @@ import Icon from './app/components/Icon';
 import ListingItem from './app/components/ListingItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
+import AppTextInput from './app/components/AppTextInput';
+import colors from './app/configs/colors';
+import styles from './app/components/AppButton/styles';
 
 const App = () => {
-  return <ListingsScreen />;
+  const [firstName, setFirstName] = useState('');
+  const [isNew, setIsNew] = useState(false);
+
+  return (
+    <Screen>
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
+    </Screen>
+  );
 };
 
 export default App;
