@@ -61,7 +61,7 @@ function MessagesScreen(props) {
         onRefresh={() => {
           setMessages([
             {
-              id: 2,
+              id: 7,
               title: 'T4',
               desc: 'D4',
               image: require('../assets/mosh.jpg'),

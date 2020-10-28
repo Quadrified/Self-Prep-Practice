@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: colors.white,
     overflow: 'hidden',
+    marginTop: 10,
   },
   image: {
     width: '100%',
