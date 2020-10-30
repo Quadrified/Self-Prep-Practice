@@ -29,9 +29,32 @@ const App = () => {
   const [firstName, setFirstName] = useState('');
   const [isNew, setIsNew] = useState(false);
 
+  const categories = [
+    {
+      label: 'Furniture',
+      value: 1,
+    },
+    {
+      label: 'Clothings',
+      value: 2,
+    },
+    {
+      label: 'Camera',
+      value: 3,
+    },
+  ];
+
+  const [category, setCategory] = useState(categories[0]);
+
   return (
     <Screen>
-      <AppPicker icon="apps" placeholder="Category" />
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        icon="apps"
+        placeholder="Category"
+        items={categories}
+      />
       <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
