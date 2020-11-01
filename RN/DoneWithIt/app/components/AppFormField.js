@@ -1,17 +1,14 @@
 import React from 'react';
 import {useFormikContext} from 'formik';
-import AppTextInput from './AppText';
+import AppTextInput from './AppTextInput';
 import AppErrorMessage from './AppErrorMessage';
 
-function AppFormField({name}) {
+function AppFormField({name, ...otherProps}) {
+  const {setFieldTouched, handleChange, errors, touched} = useFormikContext();
   return (
     <>
       <AppTextInput
-        // icon="form-textbox-password"
-        // placeholder="Password"
-        // autoCapitalize="none"
-        // autoCorrect={false}
-        // secureTextEntry
+        {...otherProps}
         onChangeText={handleChange(name)}
         onBlur={() => setFieldTouched(name)}
       />
