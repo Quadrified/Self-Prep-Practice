@@ -74,6 +74,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     padding: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
     marginVertical: 5,
   },
   icon: {
