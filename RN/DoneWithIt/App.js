@@ -47,11 +47,7 @@ const App = () => {
 
   const [category, setCategory] = useState(categories[0]);
 
-  return (
-    <>
-      <LoginScreen />
-    </>
-  );
+  return <LoginScreen />;
 };
 
 export default App;
