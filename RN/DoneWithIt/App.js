@@ -25,6 +25,7 @@ import colors from './app/configs/colors';
 import styles from './app/components/AppButton/styles';
 import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 
 const App = () => {
   const [firstName, setFirstName] = useState('');
@@ -47,7 +48,7 @@ const App = () => {
 
   const [category, setCategory] = useState(categories[0]);
 
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 };
 
 export default App;
