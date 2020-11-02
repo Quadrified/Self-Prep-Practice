@@ -8,7 +8,7 @@ function ListItemDeleteAction({onPress}) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
-        <Icon name="trash-can" color="#fff" size={30} />
+        <Icon name="trash-can" color={colors.white} size={30} />
       </View>
     </TouchableWithoutFeedback>
   );
