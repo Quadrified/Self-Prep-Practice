@@ -9,6 +9,7 @@ import {
   Modal,
   Button,
   FlatList,
+  LogBox,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../configs/colors';
@@ -23,7 +24,9 @@ function AppPicker({
   items,
   selectedItem,
   onSelectItem,
-  style,
+  width = '100%',
+  PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
 }) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
@@ -33,7 +36,7 @@ function AppPicker({
           console.log('Modal Open');
           setModalVisible(true);
         }}>
-        <View style={styles.container}>
+        <View style={[styles.container, {width}]}>
           {icon && (
             <Icon
               name={icon}
@@ -60,10 +63,13 @@ function AppPicker({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({item}) => (
-              <PickerItem
+              <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => {
+                  console.log(item);
                   setModalVisible(false);
                   onSelectItem(item);
                 }}
@@ -81,7 +87,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: 'row',
-    width: '100%',
     padding: 10,
     paddingTop: 15,
     paddingBottom: 15,

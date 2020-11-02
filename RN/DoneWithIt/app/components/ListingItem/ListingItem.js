@@ -1,10 +1,10 @@
-import {Color} from 'chalk';
 import React from 'react';
 import {View, Image, TouchableOpacity, TouchableHighlight} from 'react-native';
 import colors from '../../configs/colors';
 import AppText from '../AppText';
 import styles from './styles';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function ListingItem({
   title,
@@ -22,9 +22,16 @@ function ListingItem({
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.textContainer}>
-            <AppText style={styles.title}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+            <AppText style={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
+            {subTitle && (
+              <AppText numberOfLines={2} style={styles.subTitle}>
+                {subTitle}
+              </AppText>
+            )}
           </View>
+          <Icon color={colors.medium} name="chevron-right" size={25} />
         </View>
       </TouchableHighlight>
     </Swipeable>
