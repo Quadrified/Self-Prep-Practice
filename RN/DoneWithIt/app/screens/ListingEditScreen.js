@@ -49,6 +49,7 @@ function ListingEditScreen(props) {
           items={categories}
           name="category"
           placeholder="Category"
+          style={styles.placeholder}
         />
         <AppFormField
           name="title"
@@ -67,6 +68,9 @@ function ListingEditScreen(props) {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
+  },
+  placeholder: {
+    color: colors.medium,
   },
 });
 
