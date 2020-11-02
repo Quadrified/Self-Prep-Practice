@@ -37,7 +37,12 @@ function ListingEditScreen(props) {
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}>
-        <AppFormField name="title" placeholder="Title" autoCorrect={false} />
+        <AppFormField
+          name="title"
+          placeholder="Title"
+          maxLength={255}
+          autoCorrect={false}
+        />
         <AppFormField
           name="price"
           placeholder="Price"
@@ -49,11 +54,10 @@ function ListingEditScreen(props) {
           items={categories}
           name="category"
           placeholder="Category"
-          style={styles.placeholder}
         />
         <AppFormField
-          name="title"
-          placeholder="Title"
+          name="description"
+          placeholder="Description"
           multiline={true}
           numberOfLines={3}
           autoCorrect={false}
@@ -68,9 +72,6 @@ function ListingEditScreen(props) {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
-  },
-  placeholder: {
-    color: colors.medium,
   },
 });
 
