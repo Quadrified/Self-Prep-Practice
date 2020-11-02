@@ -48,7 +48,7 @@ const App = () => {
 
   const [category, setCategory] = useState(categories[0]);
 
-  return <ListingEditScreen />;
+  return <WelcomeScreen />;
 };
 
 export default App;
