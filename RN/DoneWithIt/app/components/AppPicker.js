@@ -17,7 +17,14 @@ import AppText from './AppText';
 import PickerItem from './PickerItem';
 import Screen from './Screen';
 
-function AppPicker({icon, placeholder, items, selectedItem, onSelectItem}) {
+function AppPicker({
+  icon,
+  placeholder,
+  items,
+  selectedItem,
+  onSelectItem,
+  style,
+}) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -35,7 +42,7 @@ function AppPicker({icon, placeholder, items, selectedItem, onSelectItem}) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
+          <AppText style={[styles.text, style]}>
             {selectedItem ? selectedItem.label : placeholder}
           </AppText>
           <Icon
