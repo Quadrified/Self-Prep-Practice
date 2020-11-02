@@ -37,7 +37,7 @@ function ListingEditScreen(props) {
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}>
-        <AppFormField name="title" placeholder="Title" autoCorrect={false} />
+        <AppFormField name="title" placeholder="Title" maxLength={255} autoCorrect={false} />
         <AppFormField
           name="price"
           placeholder="Price"
@@ -52,8 +52,8 @@ function ListingEditScreen(props) {
           style={styles.placeholder}
         />
         <AppFormField
-          name="title"
-          placeholder="Title"
+          name="description"
+          placeholder="Description"
           multiline={true}
           numberOfLines={3}
           autoCorrect={false}
