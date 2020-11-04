@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   StyleSheet,
@@ -7,6 +7,7 @@ import {
   TextInput,
   Switch,
 } from 'react-native';
+import * as ImagePicker from 'react-native-image-crop-picker';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
@@ -28,27 +29,9 @@ import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 
 const App = () => {
-  const [firstName, setFirstName] = useState('');
-  const [isNew, setIsNew] = useState(false);
+  useEffect(() => {}, []);
 
-  const categories = [
-    {
-      label: 'Furniture',
-      value: 1,
-    },
-    {
-      label: 'Clothings',
-      value: 2,
-    },
-    {
-      label: 'Camera',
-      value: 3,
-    },
-  ];
-
-  const [category, setCategory] = useState(categories[0]);
-
-  return <WelcomeScreen />;
+  return <Screen></Screen>;
 };
 
 export default App;
