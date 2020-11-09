@@ -29,8 +29,6 @@ import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 
 const App = () => {
-  useEffect(() => {}, []);
-
   return <Screen></Screen>;
 };
 
