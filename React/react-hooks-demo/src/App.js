@@ -19,11 +19,6 @@ function App() {
       <button>Clear completed todos</button>
       <div>0 left to do</div>
     </>
-
-    // <div className="App">
-    //   {/* <ClassCounter /> */}
-    //   {/* <HookCounter /> */}
-    // </div>
   );
 }
 
