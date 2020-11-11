@@ -36,6 +36,11 @@ export default function FunctionPress() {
         title="Normal Function Press"
         onPress={() => normalFunctionPress()}
       />
+      
+      <AppButton
+        title="Normal Function Press"
+        onPress={normalFunctionPress()}
+      />
 
       <AppButton
         title="Arrow Function Press"
