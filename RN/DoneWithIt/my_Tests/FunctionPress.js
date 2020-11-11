@@ -1,8 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import AppButton from './app/components/AppButton';
-import Screen from './app/components/Screen';
-import AppText from './app/components/AppText';
+import AppButton from '../app/components/AppButton';
+import Screen from '../app/components/Screen';
+import AppText from '../app/components/AppText';
 
 /**
  * Normal functions aka Named functions do not work in Functional conponents until they are written explicitly with the keyword "function" i.e

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
-import AppButton from './app/components/AppButton';
-import Screen from './app/components/Screen';
-import AppText from './app/components/AppText';
+import AppButton from '../app/components/AppButton';
+import Screen from '../app/components/Screen';
+import AppText from '../app/components/AppText';
 
 /**
  * All function calls in class components have to be called using 'this' keyword.
