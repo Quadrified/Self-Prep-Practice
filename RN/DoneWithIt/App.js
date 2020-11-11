@@ -27,9 +27,10 @@ import styles from './app/components/AppButton/styles';
 import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import FunctionPress from './FunctionPress';
 
 const App = () => {
-  return <Screen></Screen>;
+  return <FunctionPress />;
 };
 
 export default App;
