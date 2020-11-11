@@ -27,9 +27,11 @@ import styles from './app/components/AppButton/styles';
 import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import LoginScreenFn from './my_Tests/LoginScreenFn';
+import LoginScreenClass from './my_Tests/LoginScreenClass';
 
 const App = () => {
-  return null;
+  return <LoginScreenClass />;
 };
 
 export default App;
