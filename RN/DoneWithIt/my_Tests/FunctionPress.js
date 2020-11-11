@@ -6,7 +6,7 @@ import AppText from '../app/components/AppText';
 /**
  * Normal functions aka Named functions do not work in Functional conponents until they are written explicitly with the keyword "function" i.e
  * You cannot have functionName() {...} because 'this' keyword doesn't apply globally.
- * But you can have function MyFunction() {...}
+ * But you can have - function MyFunction() {...}
  * They always use arrow functions for any function call
  */
 
