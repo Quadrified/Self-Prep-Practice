@@ -5,19 +5,23 @@ import Screen from './app/components/Screen';
 import AppText from './app/components/AppText';
 
 /**
- * Normal functions aka Named functions do not work in Functional conponents
- * They always use arrow functions
+ * Normal functions aka Named functions do not work in Functional conponents until they are written explicitly with the keyword "function"
+ * They always use arrow functions.
  */
 // normalFunctionPress () {
 //     console.log('Normal function press!');
 // };
 
 export default function FunctionPress() {
-  namedFunctionPress = () => {
+  function normalFunctionPress() {
     console.log('Normal function press!');
+  }
+
+  arrowFunctionPress = () => {
+    console.log('Arrow function press!');
   };
 
-  const functionExpression = (name) => {
+  functionExpression = (name) => {
     console.log(`Function Expression press! with ${name}`);
     setTimeout(() => {
       console.clear();
@@ -28,6 +32,11 @@ export default function FunctionPress() {
     <Screen>
       <AppText> Functional Component </AppText>
 
+      <AppButton
+        title="Normal Function Press"
+        onPress={() => normalFunctionPress()}
+      />
+
       {/* 
             Cannot directly pass the name of arrow fn as a reference.
             <AppButton title="Function Press 1" onPress={normalFunctionPress} />  
@@ -35,8 +44,8 @@ export default function FunctionPress() {
 
       {/* This works. Calling a function by assigning it to () => fn */}
       <AppButton
-        title="Named Function Press"
-        onPress={() => namedFunctionPress()}
+        title="Arrow Function Press"
+        onPress={() => arrowFunctionPress()}
       />
 
       {/* 
@@ -51,19 +60,11 @@ export default function FunctionPress() {
         <AppButton title="Function Press" onPress={normalFunctionPress()} /> 
       */}
 
-      {/*  */}
+      {/* Arrow function and function expression work the same and with same function call */}
       <AppButton
         title="Function Expression Press"
-        onPress={() => functionExpression()}
+        onPress={() => functionExpression('Omer')}
       />
-
-      <AppButton title="Function Press" onPress={() => {}} />
-
-      <AppButton title="Function Press" onPress={() => {}} />
-
-      <AppButton title="Function Press" onPress={() => {}} />
-
-      <AppButton title="Function Press" onPress={() => {}} />
     </Screen>
   );
 }
