@@ -31,7 +31,7 @@ import LoginScreenFn from './my_Tests/LoginScreenFn';
 import LoginScreenClass from './my_Tests/LoginScreenClass';
 
 const App = () => {
-  return <LoginScreenClass />;
+  return null;
 };
 
 export default App;
