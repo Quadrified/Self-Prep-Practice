@@ -29,9 +29,10 @@ import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import LoginScreenFn from './my_Tests/LoginScreenFn';
 import LoginScreenClass from './my_Tests/LoginScreenClass';
+import BleManagerTest from './my_Tests/BleManagerTest';
 
 const App = () => {
-  return null;
+  return <BleManagerTest />;
 };
 
 export default App;
