@@ -67,13 +67,13 @@ export default class BleManagerTest extends Component {
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
-        PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       ).then((result) => {
         if (result) {
           console.log('Permission is OK');
         } else {
           PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
           ).then((result) => {
             if (result) {
               console.log('User accept');
@@ -135,7 +135,7 @@ export default class BleManagerTest extends Component {
   startScan() {
     if (!this.state.scanning) {
       //this.setState({peripherals: new Map()});
-      BleManager.scan([], 3, true).then((results) => {
+      BleManager.scan([], 5, true).then((results) => {
         console.log('Scanning...');
         this.setState({scanning: true});
       });
