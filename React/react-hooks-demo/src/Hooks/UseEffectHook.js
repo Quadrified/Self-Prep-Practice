@@ -11,6 +11,14 @@ export default function UseEffectHook() {
       .then((json) => setItems(json));
   }, [resourceType]);
 
+//   const dummyFunction = () => {
+//     alert('Dummy');
+//   };
+
+  function dummyFunction(){
+    alert('Dummy');
+  }
+
   return (
     <>
       <button
@@ -36,6 +44,9 @@ export default function UseEffectHook() {
         }}
       >
         Comments
+      </button>
+      <button className="button" onClick={() => dummyFunction()}>
+        Dummy
       </button>
       <h1>{resourceType}</h1>
       {items.map((item) => {

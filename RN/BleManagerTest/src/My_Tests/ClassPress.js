@@ -7,7 +7,7 @@ import AppText from '../app/components/AppText';
 /**
  * All function calls in class components have to be called using 'this' keyword.
  * If a function call has to be made immediately we use this.functionCall();
- * If we want to execute only on an action we call it using arrow fn 
+ * If we want to execute only on an action we call it using arrow fn
  * {() => this.functionCall()} or {this.functionCall()}
  */
 
@@ -63,6 +63,10 @@ export default class ClassPress extends Component {
         <AppButton
           title="Arrow Function Arrow call 3"
           onPress={this.arrowFunction}
+        />
+        <AppButton
+          title="Normal Function Arrow call 4"
+          onPress={this.normalFunction}
         />
 
         {/* When called using () => {} syntax, the normal function is executed only on press of the button but returns undefined because of no 'this keyword reference'
