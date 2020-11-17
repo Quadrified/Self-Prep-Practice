@@ -1,5 +1,5 @@
 import React from 'react';
-import BleManagerTest from './src/My_Tests/BleManagerTest';
+import BleManagerTest from './src/BleManagerTest';
 
 function App(props) {
   return <BleManagerTest />;
