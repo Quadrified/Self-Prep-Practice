@@ -3,19 +3,17 @@ import './App.css';
 import ClassCounter from './components/ClassCounter';
 import HookCounter from './components/HookCounter';
 import TodoList from './components/TodoList';
+import UseEffectHook from './Hooks/UseEffectHook';
 import UseStateHook from './Hooks/UseStateHook';
 
 function App() {
   return (
     <div
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '5em',
+        fontSize: '2em',
       }}
     >
-      <UseStateHook />
+      <UseEffectHook />
     </div>
   );
 }
