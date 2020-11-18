@@ -3,22 +3,25 @@ import {Image, View, StyleSheet} from 'react-native';
 import AppText from '../components/AppText';
 import colors from '../configs/colors';
 import ListingItem from '../components/ListingItem';
+import Screen from '../components/Screen';
 
 function ListingDetailsScreen(props) {
   return (
-    <View style={{margin: 5}}>
-      <Image style={styles.image} source={require('../assets/jacket.jpg')} />
-      <View styles={styles.detailsContainer}>
-        <AppText style={styles.title}>Red Jacket for sale</AppText>
-        <AppText style={styles.price}>$100</AppText>
-        <View style={styles.userContainer}></View>
-        <ListingItem
-          image={require('../assets/mosh.jpg')}
-          title="Mosh Hamedani"
-          subTitle="5 listings"
-        />
+    <Screen>
+      <View style={{margin: 5}}>
+        <Image style={styles.image} source={require('../assets/jacket.jpg')} />
+        <View styles={styles.detailsContainer}>
+          <AppText style={styles.title}>Red Jacket for sale</AppText>
+          <AppText style={styles.price}>$100</AppText>
+          <View style={styles.userContainer}></View>
+          <ListingItem
+            image={require('../assets/mosh.jpg')}
+            title="Mosh Hamedani"
+            subTitle="5 listings"
+          />
+        </View>
       </View>
-    </View>
+    </Screen>
   );
 }
 

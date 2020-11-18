@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     bottom: 20,
   },
   tagLine: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     paddingVertical: 10,
     fontFamily: 'Roboto',
