@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   StyleSheet,
@@ -6,6 +6,8 @@ import {
   Platform,
   TextInput,
   Switch,
+  PermissionsAndroid,
+  Button,
 } from 'react-native';
 import * as ImagePicker from 'react-native-image-crop-picker';
 
@@ -29,7 +31,43 @@ import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 
 const App = () => {
-  return <WelcomeScreen />;
+  const requestPermission = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      // PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Please grant Camera permissions',
+        message: 'The App needs access to your camera ',
+        buttonNeutral: 'Ask me later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'Okay!',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log('Camera permission given');
+    } else {
+      console.log('Permission Denied');
+      // requestPermission();
+    }
+  };
+
+  // useEffect(() => {
+  //   requestPermission();
+  //   console.log('Mounted');
+  // }, []);
+
+  // const selectImage = () => {
+  //   console.log('Pressed');
+  // };
+  function selectImage() {
+    console.log('Pressed');
+  }
+
+  return (
+    <Screen>
+      <Button title="Select Image" onPress={selectImage} />
+    </Screen>
+  );
 };
 
 export default App;
