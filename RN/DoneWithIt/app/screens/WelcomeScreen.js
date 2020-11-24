@@ -14,6 +14,7 @@ class WelcomeScreen extends Component {
   onPress = () => {
     console.log('Tapped on HS');
   };
+
   render() {
     return (
       <ImageBackground
