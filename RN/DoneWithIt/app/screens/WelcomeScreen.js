@@ -12,7 +12,7 @@ import AppButton from '../components/AppButton';
 
 class WelcomeScreen extends Component {
   onPress = () => {
-    console.log('Tapped on HS');
+    console.log('Tapped on HomeScreen');
   };
 
   render() {
