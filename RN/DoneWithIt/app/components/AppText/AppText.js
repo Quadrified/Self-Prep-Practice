@@ -4,7 +4,6 @@ import styles from './styles';
 import defaultStyles from '../../configs/styles';
 
 const AppText = ({children, style, ...otherProps}) => {
-  // console.log(props);
   return (
     <Text style={[defaultStyles.text, style]} {...otherProps}>
       {children}
