@@ -14,8 +14,10 @@ import {
   Dimensions,
   Button,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
+import Screen from './components/Screen';
 
 const window = Dimensions.get('window');
 
@@ -66,6 +68,7 @@ export default class BleManagerTest extends Component {
     );
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
+      this.bluetoothCheck();
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       ).then((result) => {
@@ -76,9 +79,9 @@ export default class BleManagerTest extends Component {
             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
           ).then((result) => {
             if (result) {
-              console.log('User accept');
+              // console.log('User accept');
             } else {
-              console.log('User refuse');
+              // console.log('User refuse');
             }
           });
         }
@@ -86,12 +89,24 @@ export default class BleManagerTest extends Component {
     }
   }
 
+  bluetoothCheck() {
+    BleManager.enableBluetooth()
+      .then(() => {
+        // Success code
+        // console.log('The bluetooth is already enabled or the user confirm');
+      })
+      .catch((error) => {
+        // Failure code
+        console.log('The user refuse to enable bluetooth');
+      });
+  }
+
   handleAppStateChange(nextAppState) {
     if (
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'
     ) {
-      console.log('App has come to the foreground!');
+      // console.log('App has come to the foreground!');
       BleManager.getConnectedPeripherals([]).then((peripheralsArray) => {
         console.log('Connected peripherals: ' + peripheralsArray.length);
       });
@@ -135,7 +150,8 @@ export default class BleManagerTest extends Component {
   startScan() {
     if (!this.state.scanning) {
       //this.setState({peripherals: new Map()});
-      BleManager.scan([], 5, true).then((results) => {
+      BleManager.scan([], 5, false).then((results) => {
+        // console.log(results);
         console.log('Scanning...');
         this.setState({scanning: true});
       });
@@ -166,6 +182,7 @@ export default class BleManagerTest extends Component {
     }
     peripherals.set(peripheral.id, peripheral);
     this.setState({peripherals});
+    // console.log('Got ble peripheral', peripherals);
   }
 
   test(peripheral) {
@@ -199,53 +216,66 @@ export default class BleManagerTest extends Component {
               BleManager.retrieveServices(peripheral.id).then(
                 (peripheralInfo) => {
                   console.log(peripheralInfo);
-                  var service = '13333333-3333-3333-3333-333333333337';
-                  var bakeCharacteristic =
-                    '13333333-3333-3333-3333-333333330003';
-                  var crustCharacteristic =
-                    '13333333-3333-3333-3333-333333330001';
+                  // var service = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
+                  var service = '1800';
+                  var readCharacteristic = '2a00';
+                  // var writeCharacteristic =
+                  //   '13333333-3333-3333-3333-333333330001';
 
-                  setTimeout(() => {
-                    BleManager.startNotification(
-                      peripheral.id,
-                      service,
-                      bakeCharacteristic,
-                    )
-                      .then(() => {
-                        console.log('Started notification on ' + peripheral.id);
-                        setTimeout(() => {
-                          BleManager.write(
-                            peripheral.id,
-                            service,
-                            crustCharacteristic,
-                            [0],
-                          ).then(() => {
-                            console.log('Writed NORMAL crust');
-                            BleManager.write(
-                              peripheral.id,
-                              service,
-                              bakeCharacteristic,
-                              [1, 95],
-                            ).then(() => {
-                              console.log(
-                                'Writed 351 temperature, the pizza should be BAKED',
-                              );
-                              /*
-                        var PizzaBakeResult = {
-                          HALF_BAKED: 0,
-                          BAKED:      1,
-                          CRISPY:     2,
-                          BURNT:      3,
-                          ON_FIRE:    4
-                        };*/
-                            });
-                          });
-                        }, 500);
-                      })
-                      .catch((error) => {
-                        console.log('Notification error', error);
-                      });
-                  }, 200);
+                  BleManager.read(peripheral.id, service, readCharacteristic)
+                    .then((readData) => {
+                      // Success code
+                      console.log('Read: ' + readData);
+
+                      var Buffer = require('buffer/').Buffer
+                      const buffer = Buffer.Buffer.from(readData); //https://github.com/feross/buffer#convert-arraybuffer-to-buffer
+                      const sensorData = buffer.readUInt8(1, true);
+                    })
+                    .catch((error) => {
+                      // Failure code
+                      console.log(error);
+                    });
+                  // setTimeout(() => {
+                  //   BleManager.startNotification(
+                  //     peripheral.id,
+                  //     service,
+                  //     bakeCharacteristic,
+                  //   )
+                  //     .then(() => {
+                  //       console.log('Started notification on ' + peripheral.id);
+                  //       // setTimeout(() => {
+                  //       //   BleManager.write(
+                  //       //     peripheral.id,
+                  //       //     service,
+                  //       //     crustCharacteristic,
+                  //       //     [0],
+                  //       //   ).then(() => {
+                  //       //     console.log('Writed NORMAL crust');
+                  //       //     BleManager.write(
+                  //       //       peripheral.id,
+                  //       //       service,
+                  //       //       bakeCharacteristic,
+                  //       //       [1, 95],
+                  //       //     ).then(() => {
+                  //       //       console.log(
+                  //       //         'Writed 351 temperature, the pizza should be BAKED',
+                  //       //       );
+                  //       //       /*
+                  //       // var PizzaBakeResult = {
+                  //       //   HALF_BAKED: 0,
+                  //       //   BAKED:      1,
+                  //       //   CRISPY:     2,
+                  //       //   BURNT:      3,
+                  //       //   ON_FIRE:    4
+                  //       // };*/
+                  //       //     });
+                  //       //   });
+                  //       // }, 500);
+                  //     })
+                  //     .catch((error) => {
+                  //       console.log('Notification error', error);
+                  //     });
+                  // }, 200);
                 },
               );
             }, 900);
@@ -338,6 +368,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     width: window.width,
     height: window.height,
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   scroll: {
     flex: 1,
