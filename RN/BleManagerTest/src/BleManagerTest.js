@@ -46,6 +46,8 @@ export default class BleManagerTest extends Component {
   }
 
   componentDidMount() {
+    // let data = [2, 4, 60, 555, 194, 103, 197, 110];
+    // this.byteToString(data);
     AppState.addEventListener('change', this.handleAppStateChange);
 
     BleManager.start({showAlert: false});
@@ -87,6 +89,16 @@ export default class BleManagerTest extends Component {
         }
       });
     }
+  }
+
+  byteToString(data) {
+    //data = data.toString();
+    console.log(data);
+    let result = '';
+    for (let i = 0; i < data.length; i++) {
+      result += String.fromCharCode(parseInt(data[i], 2));
+    }
+    console.log(result);
   }
 
   bluetoothCheck() {
@@ -227,7 +239,7 @@ export default class BleManagerTest extends Component {
                       // Success code
                       console.log('Read: ' + readData);
 
-                      var Buffer = require('buffer/').Buffer
+                      var Buffer = require('buffer/').Buffer;
                       const buffer = Buffer.Buffer.from(readData); //https://github.com/feross/buffer#convert-arraybuffer-to-buffer
                       const sensorData = buffer.readUInt8(1, true);
                     })
@@ -368,7 +380,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     width: window.width,
     height: window.height,
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   scroll: {
     flex: 1,
