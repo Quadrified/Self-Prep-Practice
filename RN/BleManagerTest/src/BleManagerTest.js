@@ -50,7 +50,7 @@ export default class BleManagerTest extends Component {
     // this.byteToString(data);
     AppState.addEventListener('change', this.handleAppStateChange);
 
-    BleManager.start({showAlert: false});
+    BleManager.start({showAlert: false, forceLegacy: true});
 
     this.handlerDiscover = bleManagerEmitter.addListener(
       'BleManagerDiscoverPeripheral',
@@ -81,9 +81,9 @@ export default class BleManagerTest extends Component {
             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
           ).then((result) => {
             if (result) {
-              // console.log('User accept');
+              console.log('User accept');
             } else {
-              // console.log('User refuse');
+              console.log('User refuse');
             }
           });
         }
