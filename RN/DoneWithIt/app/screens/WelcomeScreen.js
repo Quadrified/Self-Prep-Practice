@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-  Alert,
   Image,
   ImageBackground,
   StyleSheet,
@@ -58,6 +57,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingVertical: 10,
     fontFamily: 'Roboto',
+    opacity: 0.4,
+    color: colors.black
   },
   logoContainer: {
     position: 'absolute',
