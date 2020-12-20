@@ -1,5 +1,5 @@
 import React from 'react';
-import {useFormikContext} from 'formik';
+import { useFormikContext } from 'formik';
 
 import AppPicker from '../AppPicker';
 import AppErrorMessage from './AppErrorMessage';
@@ -12,7 +12,7 @@ function AppFormPicker({
   width,
   numberOfColumns,
 }) {
-  const {errors, setFieldValue, touched, values} = useFormikContext();
+  const { errors, setFieldValue, touched, values } = useFormikContext();
 
   return (
     <>

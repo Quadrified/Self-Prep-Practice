@@ -16,7 +16,7 @@ function ImageInput({imageUri, onChangeImage}) {
       selectImage();
     } else {
       Alert.alert('Delete', 'Are you sure you want to delete the image?', [
-        {text: 'Yes', onPress: () => onChangeImage(null)},
+        {text: 'Delete', onPress: () => onChangeImage(null)},
         {text: 'No'},
       ]);
     }
