@@ -1,7 +1,7 @@
 /**
  * 4th App
  * Deals with taking input from user.
- * Error handling with input from user.
+ * Error handling with input from user using 3rd party library.
  * More about UI and Flexbox.
  * 3rd party library used: Snackbar - https://github.com/cooperka/react-native-snackbar
  */
@@ -77,11 +77,6 @@ function CurrencyConverter(props) {
               onChangeText={(input) => setInputValue(input)}
             />
           </View>
-          {/* <View style={styles.resetContainer}>
-            <TouchableOpacity style={styles.resetButton} onPress={resetAll}>
-              <Text style={styles.currencyText}>Reset</Text>
-            </TouchableOpacity>
-          </View> */}
           <View style={styles.convertButtonContainer}>
             {Object.keys(currencyPerRupee).map((currency) => (
               <TouchableOpacity
