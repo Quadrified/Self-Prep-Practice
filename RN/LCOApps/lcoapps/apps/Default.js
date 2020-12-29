@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar, Text } from 'react-native';
 
+// TODO: Get all apps and make a list of Buttons with app names that navigate to that particular app.
+
 function Default(props) {
   return (
     <>
