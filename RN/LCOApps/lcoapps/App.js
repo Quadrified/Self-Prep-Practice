@@ -8,11 +8,12 @@ import CurrencyConverter from './apps/CurrencyApp/CurrencyConverter'; // => App 
 import ProfilePic from './apps/ProfilePic/ProfilePic'; // => App #5
 import TicTacToe from './apps/TicTacToe/TicTacToe'; // => App #6
 import NetflixStore from './apps/NetflixStore/NetflixStore'; // => App #7
+import UserAPI from './apps/UserAPI/UserAPI'; // => App #8
 
 function App(props) {
   return (
     <>
-      <NetflixStore />
+      <Default />
     </>
   );
 }
