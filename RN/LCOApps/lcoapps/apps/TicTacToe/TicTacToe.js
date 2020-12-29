@@ -4,6 +4,7 @@
  * Dives more into 3rd party libraries for UI.
  * Learning to create separate components.
  * UI library used => Native base :  https://github.com/GeekyAnts/NativeBase
+ * UI library used => Native base :  https://github.com/GeekyAnts/NativeBase
  */
 
 import React, { useState } from 'react';

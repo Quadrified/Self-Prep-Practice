@@ -7,11 +7,12 @@ import SpanishNumber from './apps/SpanishNumber/SpanishNumber'; // => App #3
 import CurrencyConverter from './apps/CurrencyApp/CurrencyConverter'; // => App #4
 import ProfilePic from './apps/ProfilePic/ProfilePic'; // => App #5
 import TicTacToe from './apps/TicTacToe/TicTacToe'; // => App #6
+import NetflixStore from './apps/NetflixStore/NetflixStore'; // => App #7
 
 function App(props) {
   return (
     <>
-      <Default />
+      <NetflixStore />
     </>
   );
 }
