@@ -4,7 +4,7 @@ import { StyleSheet, Text, Image } from 'react-native';
 import { Card, CardItem, H1 } from 'native-base';
 import moment from 'moment';
 
-function User({ details }) {
+function GithubUser({ details }) {
   console.log(details);
   return (
     <>
@@ -12,7 +12,7 @@ function User({ details }) {
         <CardItem cardBody style={styles.cardItem}>
           <Image
             source={{
-              uri: details.picture?.large,
+              uri: details.avatar_url,
               width: 150,
               height: 250,
             }}
@@ -21,25 +21,23 @@ function User({ details }) {
         </CardItem>
         <CardItem style={styles.cardItem}>
           <H1 style={styles.text}>
-            {details.name?.title} {details.name?.first} {details.name?.last}
+            {details.name} / {details.login}
           </H1>
         </CardItem>
         <CardItem bordered style={styles.cardItem}>
-          <Text style={styles.text}>{details.cell}</Text>
+          <Text style={styles.text}>{details.bio}</Text>
         </CardItem>
         <CardItem bordered style={styles.cardItem}>
-          <Text style={styles.text}>{details.email}</Text>
-        </CardItem>
-        <CardItem bordered style={styles.cardItem}>
-          <Text style={styles.text}>
-            {details.location?.city} {details.location?.state}{' '}
-            {details.location?.country}
-          </Text>
+          <Text style={styles.text}>Public repos:{details.public_repos}</Text>
         </CardItem>
         <CardItem footer style={styles.cardItem}>
-          <Text style={{ color: '#E07C24' }}> Registered on : </Text>
+          <Text style={{ color: '#E07C24' }}> Github URL : </Text>
+          <Text style={{ color: '#FFF' }}>{details.url}</Text>
+        </CardItem>
+        <CardItem footer style={styles.cardItem}>
+          <Text style={{ color: '#E07C24' }}> Github created at : </Text>
           <Text style={{ color: '#FFF' }}>
-            {moment(details.registered?.date).format('DD-MM-YYYY')}
+            {moment(details.created_at).format('DD-MM-YYYY')}
           </Text>
         </CardItem>
       </Card>
@@ -74,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default User;
+export default GithubUser;
