@@ -4,42 +4,26 @@ import { StyleSheet, Text, Image } from 'react-native';
 import { Card, CardItem, H1 } from 'native-base';
 import moment from 'moment';
 
-function User({ details }) {
+function ChuckNorrisJokes({ details }) {
   console.log(details);
+  const joke = details.value;
   return (
     <>
       <Card style={styles.card}>
         <CardItem cardBody style={styles.cardItem}>
           <Image
             source={{
-              uri: details.picture?.large,
+              uri: details.icon_url,
               width: 150,
               height: 250,
             }}
             style={styles.image}
           />
         </CardItem>
-        <CardItem style={styles.cardItem}>
-          <H1 style={styles.text}>
-            {details.name?.title} {details.name?.first} {details.name?.last}
-          </H1>
-        </CardItem>
-        <CardItem bordered style={styles.cardItem}>
-          <Text style={styles.text}>{details.cell}</Text>
-        </CardItem>
-        <CardItem bordered style={styles.cardItem}>
-          <Text style={styles.text}>{details.email}</Text>
-        </CardItem>
-        <CardItem bordered style={styles.cardItem}>
-          <Text style={styles.text}>
-            {details.location?.city} {details.location?.state}{' '}
-            {details.location?.country}
-          </Text>
-        </CardItem>
         <CardItem footer style={styles.cardItem}>
-          <Text style={{ color: '#E07C24' }}> Registered on : </Text>
-          <Text style={{ color: '#FFF' }}>
-            {moment(details.registered?.date).format('DD-MM-YYYY')}
+          <Text style={{ color: '#E07C24' }}> Here's a joke :{'\n'} </Text>
+          <Text style={{ color: '#FFF', flexWrap: 'wrap' }}>
+            {details.value}
           </Text>
         </CardItem>
       </Card>
@@ -59,6 +43,7 @@ const styles = StyleSheet.create({
   cardItem: {
     backgroundColor: '#4f8a8b',
     marginVertical: 5,
+    flexDirection: 'column',
   },
   image: {
     width: 150,
@@ -74,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default User;
+export default ChuckNorrisJokes;
