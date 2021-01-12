@@ -23,5 +23,3 @@ function App(props) {
     </>
   );
 }
-
-ex
