@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import {StyleSheet, ScrollView, View} from 'react-native';
 import {
   List,
   ListItem,
@@ -19,14 +19,14 @@ import {
   Content,
 } from 'native-base';
 
-import propTypes from 'prop-types';
-import { connect } from 'react-redux';
+import propTypes from 'prop-types'
+import {connect} from 'react-redux'
 
-import { markComplete, removeSeason } from '../action/list';
+import { removeSeason, markComplete } from '../action/list'
 
 // TODO: action to perform in redux
 
-const Home = ({ navigation, markComplete, removeSeason, listState }) => {
+const Home = ({navigation, markComplete, removeSeason, listState}) => {
   // if the length of the season is zero then rendering container with the message
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -70,7 +70,7 @@ const Home = ({ navigation, markComplete, removeSeason, listState }) => {
       )}
 
       <Fab
-        style={{ backgroundColor: '#5067FF' }}
+        style={{backgroundColor: '#5067FF'}}
         position="bottomRight"
         onPress={() => navigation.navigate('Add')}>
         <Icon name="add" />
@@ -82,19 +82,19 @@ const Home = ({ navigation, markComplete, removeSeason, listState }) => {
 //TODO: redux config
 
 const mapStateToProps = (state) => ({
-  listState: state.list,
-});
+    listState: state.list
+})
 
 const mapDispatchToProps = {
-  removeSeason: (id) => removeSeason(id),
-  markComplete: (id) => markComplete(id),
-};
+    removeSeason: (id) => removeSeason(id),
+    markComplete: (id) => markComplete(id)
+}
 
-Home.propTypes = {
-  removeSeason: propTypes.func.isRequired,
-  markComplete: propTypes.func.isRequired,
-  listState: propTypes.array.isRequired,
-};
+Home.prototype ={
+    removeSeason: propTypes.func.isRequired,
+    markComplete: propTypes.func.isRequired,
+    listState: propTypes.array.isRequired
+}
 
 //TODO: Redux export
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
