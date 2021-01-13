@@ -12,14 +12,14 @@ import NetflixStore from './apps/NetflixStore/NetflixStore'; // => App #7
 import UserAPI from './apps/UserAPI/UserAPI'; // => App #8
 import ChuckAPI from './apps/UserAPI/ChuckAPI'; // => App #8(a)
 import GithubAPI from './apps/UserAPI/GithubAPI'; // => App #8(b)
-import ReduxApp from './apps/ReduxApp/src/ReduxApp'; // => App #9
+// import ReduxApp from './apps/ReduxApp/src/ReduxApp'; // => App #9
 
 // LogBox.ignoreAllLogs();
 
 function App(props) {
   return (
     <>
-      <ReduxApp />
+      <Default />
     </>
   );
 }
