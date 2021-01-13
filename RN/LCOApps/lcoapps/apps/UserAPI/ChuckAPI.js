@@ -1,38 +1,26 @@
-/**
- * 8th App
- * The UserAPI app teaches to understand working with APIs in React Native.
- * Teaches Handling web requests
- * Our URL => URL = `https://randomuser.me/api/${key}/params`
- * Axios : https://github.com/axios/axios
- * MomentJS:  https://momentjs.com/
- * React Navigation : https://reactnavigation.org/docs/getting-started
- * Native base : https://github.com/GeekyAnts/NativeBase
- * Snackbar - https://github.com/cooperka/react-native-snackbar
- */
-
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, StatusBar } from 'react-native';
 
-import User from './components/User';
-
 import Axios from 'axios';
 import { Button, Spinner, Container } from 'native-base';
+import ChuckNorrisJokes from './components/ChuckNorrisJokes';
 
 // const key = '212';
 // const URL = `https://randomuser.me/api/${key}/params`;
 // const URL = `https://api.github.com/users/${key}`;
 
-function UserAPI(props) {
+function ChuckAPI(props) {
   const [details, setDetails] = useState(null);
 
   const fetchDetails = async () => {
     try {
-      // setDetails(null);
+      const { data } = await Axios.get(
+        'https://api.chucknorris.io/jokes/random',
+      );
+      const jokeDetails = data;
+      console.log(jokeDetails);
 
-      const { data } = await Axios.get('https://randomuser.me/api/');
-      const details = data.results[0];
-
-      setDetails(details);
+      setDetails(jokeDetails);
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +40,7 @@ function UserAPI(props) {
       ) : (
         <View style={styles.container}>
           <View style={styles.detailsContainer}>
-            <User details={details} />
+            <ChuckNorrisJokes details={details} />
             <View style={styles.detailsContainer}>
               <Button
                 rounded
@@ -85,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserAPI;
+export default ChuckAPI;
