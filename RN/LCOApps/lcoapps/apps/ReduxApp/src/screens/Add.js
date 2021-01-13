@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, ScrollView } from 'react-native';
 import {
   Container,
   Content,
@@ -12,13 +12,13 @@ import {
   H1,
 } from 'native-base';
 
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 
 import shortid from 'shortid';
-import {addSeason} from '../action/list'
-import {connect} from 'react-redux'
+import { addSeason } from '../action/list';
+import { connect } from 'react-redux';
 
-const Add = ({navigation, addSeason}) => {
+const Add = ({ navigation, addSeason }) => {
   // to hold name of the season and total no of the season
   const [name, setName] = useState('');
   const [totalNoSeason, setTotalNoSeason] = useState('');
@@ -26,28 +26,27 @@ const Add = ({navigation, addSeason}) => {
   // to add the current season into list and then move to the home screen
   const handleSubmit = async () => {
     try {
-        if (!name || !totalNoSeason) {
-            return alert('Please add both fields')
-        }
+      if (!name || !totalNoSeason) {
+        return alert('Please add both fields');
+      }
 
-        const seasonToAdd = {
-            id: shortid.generate(),
-            name,
-            totalNoSeason,
-            isWatched: false
-        }
+      const seasonToAdd = {
+        id: shortid.generate(),
+        name,
+        totalNoSeason,
+        isWatched: false,
+      };
 
-        addSeason(seasonToAdd)
+      addSeason(seasonToAdd);
 
-        navigation.navigate("Home")
-
+      navigation.navigate('Home');
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   };
   return (
     <Container style={styles.container}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <H1 style={styles.heading}>Add To watch List</H1>
 
         <Form>
@@ -55,7 +54,7 @@ const Add = ({navigation, addSeason}) => {
             <Input
               placeholder="Season Name"
               value={name}
-              style={{color: '#eee'}}
+              style={{ color: '#eee' }}
               onChangeText={(text) => setName(text)}
             />
           </Item>
@@ -63,7 +62,7 @@ const Add = ({navigation, addSeason}) => {
             <Input
               placeholder="Total number of season"
               value={totalNoSeason}
-              style={{color: '#eee'}}
+              style={{ color: '#eee' }}
               onChangeText={(text) => setTotalNoSeason(text)}
             />
           </Item>
@@ -78,16 +77,16 @@ const Add = ({navigation, addSeason}) => {
 
 //TODO: Redux config
 
-const mapDispatchToProps = {
-    addSeason: (data) => addSeason(data)
-}
+const mapDispatchToProps = { 
+  addSeason: (data) => addSeason(data),
+};
 
 Add.propTypes = {
-    addSeason: propTypes.func.isRequired
-}
+  addSeason: propTypes.func.isRequired,
+};
 
 //TODO: Redux Export
-export default connect(null, mapDispatchToProps )(Add);
+export default connect(null, mapDispatchToProps)(Add);
 
 const styles = StyleSheet.create({
   container: {
