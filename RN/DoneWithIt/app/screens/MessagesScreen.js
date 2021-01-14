@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
 import ListingItem from '../components/ListingItem';
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import ListItemSeparator from '../components/ListItemSeparator';
@@ -45,7 +45,7 @@ function MessagesScreen(props) {
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <ListingItem
             title={item.title}
             subTitle={item.desc}
