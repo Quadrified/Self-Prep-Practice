@@ -27,7 +27,7 @@ function ListingsScreen(props) {
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({item}) => (
           <Card
-            title={item.price}
+            title={item.title}
             subTitle={'$' + item.price}
             image={item.image}
           />

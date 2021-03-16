@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -35,6 +35,9 @@ import ImageInputList from './app/components/ImageInputList';
 
 const App = () => {
   const [imageUris, setImageUris] = useState([]);
+  useEffect(() => {
+    console.clear();
+  });
 
   const handleAdd = (uri) => {
     setImageUris([...imageUris, uri]);
@@ -45,13 +48,9 @@ const App = () => {
   };
 
   return (
-    <Screen>
-      <ImageInputList
-        imageUris={imageUris}
-        onAddImage={handleAdd}
-        onRemoveImage={handleRemove}
-      />
-    </Screen>
+    <>
+      <ViewImageScreen />
+    </>
   );
 };
 
