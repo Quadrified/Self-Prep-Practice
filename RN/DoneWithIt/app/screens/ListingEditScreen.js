@@ -7,7 +7,7 @@ import {
   AppFormField,
   AppFormPicker,
   AppSubmitButton,
-} from '../components/Forms';
+} from '../components/forms';
 import Screen from '../components/Screen';
 import colors from '../configs/colors';
 
