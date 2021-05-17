@@ -1,16 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppText from './AppText';
 
-function CategoryPickerItem({onPress, item}) {
+function CategoryPickerItem({ onPress, item }) {
   return (
-    <>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={onPress}>
         <Icon name={item.icon} color={item.backgroundColor} size={60} />
-        <AppText style={styles.label}>{item.label}</AppText>
-      </View>
-    </>
+      </TouchableOpacity>
+      <AppText style={styles.label}>{item.label}</AppText>
+    </View>
   );
 }
 
@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     alignItems: 'center',
     width: '33%',
+    borderWidth: 1,
+    borderColor: 'red',
   },
   label: {
     fontSize: 12,

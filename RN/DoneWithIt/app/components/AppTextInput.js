@@ -1,12 +1,12 @@
 import React from 'react';
-import {TextInput, View, StyleSheet, Platform} from 'react-native';
+import { TextInput, View, StyleSheet, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../configs/colors';
 import defaultStyles from '../configs/styles';
 
-function AppTextInput({icon, width = '100%', ...otherProps}) {
+function AppTextInput({ icon, width = '100%', ...otherProps }) {
   return (
-    <View style={[styles.container, {width}]}>
+    <View style={[styles.container, { width }]}>
       {icon && (
         <Icon
           name={icon}

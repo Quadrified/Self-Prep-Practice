@@ -73,6 +73,4 @@ function MessagesScreen(props) {
   );
 }
 
-const styles = StyleSheet.create({});
-
 export default MessagesScreen;

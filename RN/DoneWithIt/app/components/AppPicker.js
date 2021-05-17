@@ -1,5 +1,4 @@
-import {jsxAttribute} from '@babel/types';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   TextInput,
   View,
@@ -36,7 +35,7 @@ function AppPicker({
           console.log('Modal Open');
           setModalVisible(true);
         }}>
-        <View style={[styles.container, {width}]}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <Icon
               name={icon}
@@ -64,7 +63,7 @@ function AppPicker({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             numColumns={numberOfColumns}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <PickerItemComponent
                 item={item}
                 label={item.label}
