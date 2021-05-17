@@ -11,6 +11,7 @@ import {
   Image,
 } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
+import AppPicker from './app/components/AppPicker';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
@@ -23,7 +24,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 const App = () => {
   return (
     <>
-      <WelcomeScreen />
+      <ListingEditScreen />
     </>
   );
 };
