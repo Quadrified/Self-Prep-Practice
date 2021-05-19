@@ -17,6 +17,7 @@
     "react-native-ble-manager": "^7.4.1",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-image-crop-picker": "^0.35.1",
+    "react-native-location": "^2.5.0",
     "react-native-vector-icons": "^7.1.0",
     "yup": "^0.29.3"
   },
