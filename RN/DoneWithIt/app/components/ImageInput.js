@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -10,14 +10,14 @@ import colors from '../configs/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ImagePicker from 'react-native-image-crop-picker';
 
-function ImageInput({imageUri, onChangeImage}) {
+function ImageInput({ imageUri, onChangeImage }) {
   const handlePress = () => {
     if (!imageUri) {
       selectImage();
     } else {
       Alert.alert('Delete', 'Are you sure you want to delete the image?', [
-        {text: 'Delete', onPress: () => onChangeImage(null)},
-        {text: 'No'},
+        { text: 'Delete', onPress: () => onChangeImage(null) },
+        { text: 'No' },
       ]);
     }
   };
@@ -41,7 +41,7 @@ function ImageInput({imageUri, onChangeImage}) {
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
         {!imageUri && <Icon name="camera" size={40} color={colors.medium} />}
-        {imageUri && <Image source={{uri: imageUri}} style={styles.image} />}
+        {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       </View>
     </TouchableWithoutFeedback>
   );
