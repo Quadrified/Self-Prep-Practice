@@ -7,15 +7,18 @@ import {
   AppFormField,
   AppFormPicker,
   AppSubmitButton,
+  FormImagePicker,
 } from '../components/forms';
 import Screen from '../components/Screen';
 import colors from '../configs/colors';
+import useGeoLocation from '../hooks/useGeoLocation';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.string().required().min(1).max(10000).label('Price'),
   description: Yup.string().label('Description'),
   category: Yup.string().required().nullable().label('Category'),
+  images: Yup.array().min(1, 'Please select at least one image'),
 });
 
 let initialValues = {
@@ -23,6 +26,7 @@ let initialValues = {
   price: '',
   description: '',
   category: null,
+  images: [],
 };
 
 const categories = [
@@ -83,12 +87,15 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
+  const location = useGeoLocation();
+  console.log(location);
   return (
-    <Screen>
+    <Screen style={{ flex: 1, padding: 5 }}>
       <AppForm
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}>
+        <FormImagePicker name="images" />
         <AppFormField
           name="title"
           placeholder="Title"

@@ -29,7 +29,7 @@ function ImageInput({ imageUri, onChangeImage }) {
         height: 300,
         cropping: false,
       }).then((image) => {
-        // console.log(image);
+        console.log(image);
         onChangeImage(image.path);
       });
     } catch (error) {

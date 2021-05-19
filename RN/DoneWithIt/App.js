@@ -10,9 +10,9 @@ import {
   Button,
   Image,
 } from 'react-native';
-import ImagePicker from 'react-native-image-crop-picker';
 import AppPicker from './app/components/AppPicker';
 import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
@@ -23,9 +23,10 @@ import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
 const App = () => {
+  console.clear();
   return (
     <>
-      <ImageInput />
+      <ListingEditScreen />
     </>
   );
 };
