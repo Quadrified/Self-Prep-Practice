@@ -1,8 +1,9 @@
 import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
 import colors from '../configs/colors';
+import routes from '../navigation/routes';
 
 const listings = [
   {
@@ -19,17 +20,18 @@ const listings = [
   },
 ];
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <Card
             title={item.title}
             subTitle={'$' + item.price}
             image={item.image}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
       />

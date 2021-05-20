@@ -87,7 +87,7 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
-  const location = useGeoLocation();
+  // const location = useGeoLocation();
   console.log(location);
   return (
     <Screen style={{ flex: 1, padding: 5 }}>
