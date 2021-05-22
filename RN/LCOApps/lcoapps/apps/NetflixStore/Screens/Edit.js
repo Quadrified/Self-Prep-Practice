@@ -20,12 +20,6 @@ function Edit({ navigation, route }) {
         });
       }
 
-      const seasonToUpdate = {
-        id,
-        name,
-        totalSeasons,
-        isWatched: false,
-      };
       const storedValue = await AsyncStorage.getItem('@season_list');
       const list = await JSON.parse(storedValue);
 

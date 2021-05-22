@@ -47,16 +47,15 @@ function Home({ navigation, route }) {
 
   const deleteSeason = async (id) => {
     // Delete seasons
-    const newList = await listOfSeasons.filter((list) => list.id !== id);
+    const newList = await listOfSeasons?.filter((list) => list.id != id);
     await AsyncStorage.setItem('@season_list', JSON.stringify(newList));
-
     setListOfSeasons(newList);
   };
 
   const markWatched = async (id) => {
     // Mark watched seasons
 
-    const newList = await listOfSeasons.map((list) => {
+    const newList = await listOfSeasons?.map((list) => {
       if (list.id == id) {
         list.isWatched = !list.isWatched;
       }
@@ -79,7 +78,7 @@ function Home({ navigation, route }) {
         </Container>
       ) : (
         <ScrollView contentContainerStyle={styles.container}>
-          {listOfSeasons.length == 0 ? (
+          {listOfSeasons?.length == 0 ? (
             <Container style={styles.container}>
               <H1 style={styles.heading}>
                 Watchlist is empty. Please add a season.
@@ -89,7 +88,7 @@ function Home({ navigation, route }) {
             <>
               <H1 style={styles.heading}>Next series to watch</H1>
               <List>
-                {listOfSeasons.map((season) => (
+                {listOfSeasons?.map((season) => (
                   <ListItem style={styles.listItem} key={season.id} noBorder>
                     <Left>
                       <Button

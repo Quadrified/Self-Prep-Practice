@@ -22,7 +22,7 @@ import CustomHeader from './apps/InstagramClone/src/components/layout/CustomHead
 function App(props) {
   return (
     <>
-      <RootApp />
+      <NetflixStore />
     </>
   );
 }
