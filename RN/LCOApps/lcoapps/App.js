@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogBox } from 'react-native';
+import { Button } from 'react-native';
 import Default from './apps/Default'; // => Entry point
 import BgChanger from './apps/BgChanger/BgChanger'; // => App #1
 import DiceRoller from './apps/DiceRoller/DiceRoller'; // => App #2
@@ -17,14 +17,11 @@ import InstagramClone from './apps/InstagramClone/src/InstagramClone'; // => App
 import RootApp from './apps/InstagramClone/src/RootApp';
 import CustomHeader from './apps/InstagramClone/src/components/layout/CustomHeader';
 
+
 // LogBox.ignoreAllLogs();
 
 function App(props) {
-  return (
-    <>
-      <NetflixStore />
-    </>
-  );
+  return <Button title="Add The INsta here" />;
 }
 
 export default App;

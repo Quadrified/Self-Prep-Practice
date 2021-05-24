@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "9464270337",
-    "project_id": "insta-clone-d8d79",
-    "storage_bucket": "insta-clone-d8d79.appspot.com"
+    "project_number": "771956350098",
+    "project_id": "copper-pixel-301109",
+    "storage_bucket": "copper-pixel-301109.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:9464270337:android:235c513e32aaca6af93a00",
+        "mobilesdk_app_id": "1:771956350098:android:3917fefdbde0a472b69a4b",
         "android_client_info": {
           "package_name": "com.lcoapps"
         }
       },
       "oauth_client": [
         {
-          "client_id": "9464270337-8tmucb6cfbuc3g06jdkkcigpi6n3tp01.apps.googleusercontent.com",
+          "client_id": "771956350098-m4qtn1nh8tlvalv8o31i7ierkbmdn5gg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBd9o4s8aN2o1NYWd4zpCzIrhbz23cHQgE"
+          "current_key": "AIzaSyCR36NQ98ihMyi9BXvXgz9axGwu24d9R-w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "9464270337-8tmucb6cfbuc3g06jdkkcigpi6n3tp01.apps.googleusercontent.com",
+              "client_id": "771956350098-m4qtn1nh8tlvalv8o31i7ierkbmdn5gg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
