@@ -44,6 +44,7 @@ const Add = ({ navigation, addSeason }) => {
       console.log(error);
     }
   };
+
   return (
     <Container style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -77,7 +78,7 @@ const Add = ({ navigation, addSeason }) => {
 
 //TODO: Redux config
 
-const mapDispatchToProps = { 
+const mapDispatchToProps = {
   addSeason: (data) => addSeason(data),
 };
 
