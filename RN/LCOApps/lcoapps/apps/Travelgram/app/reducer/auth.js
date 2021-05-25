@@ -8,20 +8,20 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER:
+    case SET_USER: {
       return {
         ...state,
         user: action.payload,
         loading: false,
       };
-
-    case IS_AUTHENTICATED:
+    }
+    case IS_AUTHENTICATED: {
       return {
         ...state,
         isAuthenticated: action.payload,
         loading: false,
       };
-
+    }
     default:
       return state;
   }

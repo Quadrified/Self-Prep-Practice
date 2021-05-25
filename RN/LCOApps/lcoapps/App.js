@@ -13,15 +13,12 @@ import UserAPI from './apps/UserAPI/UserAPI'; // => App #8
 import ChuckAPI from './apps/UserAPI/ChuckAPI'; // => App #8(a)
 import GithubAPI from './apps/UserAPI/GithubAPI'; // => App #8(b)
 import ReduxApp from './apps/ReduxApp/src/ReduxApp'; // => App #9
-import InstagramClone from './apps/InstagramClone/src/InstagramClone'; // => App #10
-import RootApp from './apps/InstagramClone/src/RootApp';
-import CustomHeader from './apps/InstagramClone/src/components/layout/CustomHeader';
-
+import RootApp from './apps/Travelgram/app/RootApp'; // => App #10
 
 // LogBox.ignoreAllLogs();
 
 function App(props) {
-  return <Button title="Add The INsta here" />;
+  return <RootApp />;
 }
 
 export default App;
