@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-
+import { View, StyleSheet, Text, StatusBar } from 'react-native';
 import { Container, Spinner } from 'native-base';
 
-function EmptyContainer(props) {
+const EmptyContainer = (props) => {
   return (
     <>
       <Container style={styles.container}>
@@ -11,7 +10,7 @@ function EmptyContainer(props) {
       </Container>
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
