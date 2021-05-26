@@ -1,7 +1,8 @@
 export const options = {
   title: 'Select Avatar',
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
+  type: 'library',
+  options: {
+    mediaType: 'photo',
+    includeBase64: false,
   },
 };

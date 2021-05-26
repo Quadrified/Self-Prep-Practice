@@ -19,7 +19,7 @@ import AddPost from './screens/AddPost';
 import Header from './components/layout/CustomHeader';
 import LoadingContainer from './components/EmptyContainer';
 
-import { requestPermission } from './utils/requestPermisions';
+import { requestPermissions } from './utils/requestPermisions';
 
 const Stack = createStackNavigator();
 
@@ -53,7 +53,7 @@ function Travelgram({ authState }) {
   };
 
   useEffect(() => {
-    requestPermission();
+    requestPermissions();
     const subscriber = auth().onAuthStateChanged(onAuthStateChange);
 
     return subscriber;
@@ -87,8 +87,8 @@ function Travelgram({ authState }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  authState: state.auth;
-};
+const mapStateToProps = (state) => ({
+  authState: state.auth,
+});
 
-export default connect(mapStateToProps, null)(Travelgram);
+export default connect(mapStateToProps)(Travelgram);
