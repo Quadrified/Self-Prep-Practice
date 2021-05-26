@@ -59,26 +59,36 @@ function Travelgram({ authState }) {
     return subscriber;
   }, []);
 
+  if (authState.loading) {
+    return <LoadingContainer />;
+  }
+
   return (
     <>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={styles.container?.backgroundColor}
-      />
-      <View style={styles.container}>
-        <Text>Travelgram</Text>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            header: (props) => <Header {...props} />,
+          }}>
+          {authState.isAuthenticated ? (
+            <>
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="AddPost" component={AddPost} />
+            </>
+          ) : (
+            <>
+              <Stack.Screen name="SignUp" component={SignUp} />
+              <Stack.Screen name="SignIn" component={SignIn} />
+            </>
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-});
+const mapStateToProps = (state) => {
+  authState: state.auth;
+};
 
-export default Travelgram;
+export default connect(mapStateToProps, null)(Travelgram);
