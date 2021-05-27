@@ -25,7 +25,7 @@ import propTypes from 'prop-types';
 import { signUp } from '../action/auth';
 import { connect } from 'react-redux';
 
-const SignUp = ({ signUp, navigation }) => {
+const SignUp = ({ signUp }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

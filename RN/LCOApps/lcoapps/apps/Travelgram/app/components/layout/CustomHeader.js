@@ -45,9 +45,9 @@ const mapStateToProps = (state) => ({
   authState: state.auth,
 });
 
-const mapDispatchToProps = (state) => ({
+const mapDispatchToProps = {
   signOut,
-});
+};
 
 const styles = StyleSheet.create({
   container: {
