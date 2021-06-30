@@ -11,7 +11,6 @@ import GoalInput from './components/GoalInput';
 import GoalItem from './components/GoalItem';
 
 const GoalsApp = props => {
-  console.log('>>>Props<<<', props);
   const [courseGoals, setCourseGoals] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
 
