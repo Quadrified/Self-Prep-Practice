@@ -11,8 +11,8 @@ const Card = ({ children, style }) => {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    shadowColor: '#005A9C',
-    elevation: 10,
+    // shadowColor: '#005A9C',
+    // elevation: 10,
     padding: 20,
     borderRadius: 15,
   },

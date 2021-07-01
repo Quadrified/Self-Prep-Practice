@@ -6,15 +6,18 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
 import AppColors from '../themes/AppColors';
 
-const StartGameScreen = props => {
+const StartGameScreen = ({ onStartGame }) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [confirmedNumber, setConfirmedNumber] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState('initialState');
+  let confirmedOutput;
 
   const numberInputHandler = input => {
     setEnteredValue(input.replace(/[^0-9]/g, ''));
@@ -27,16 +30,44 @@ const StartGameScreen = props => {
 
   const confirmInputHandler = () => {
     const chosenNumber = parseInt(enteredValue);
-    if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber >= 99) {
-      return;
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber >= 99) {
+      Alert.alert('Invalid number entered', 'Enter a number between 1 and 99', [
+        {
+          text: 'Okay!',
+          style: 'destructive',
+          onPress: resetInputHandler,
+        },
+      ]);
     }
     setConfirmedNumber(true);
     setSelectedNumber(chosenNumber);
     setEnteredValue('');
+    Keyboard.dismiss();
   };
 
   if (confirmedNumber) {
-    const confirmedOutput = <Text>{selectedNumber}</Text>;
+    confirmedOutput = (
+      <Card style={styles.summaryContainer}>
+        <Text>You selected</Text>
+        <NumberContainer>
+          <Text>{selectedNumber}</Text>
+        </NumberContainer>
+        <TouchableOpacity onPress={() => onStartGame(selectedNumber)}>
+          <Text
+            style={{
+              fontSize: 16,
+              color: AppColors.primary,
+              textTransform: 'uppercase',
+              padding: 15,
+              borderRadius: 10,
+              backgroundColor: AppColors.primary,
+              color: AppColors.white,
+            }}>
+            Start Game!
+          </Text>
+        </TouchableOpacity>
+      </Card>
+    );
   }
 
   return (
@@ -116,6 +147,12 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 5,
     textAlign: 'center',
+  },
+  summaryContainer: {
+    margin: 20,
+    width: '50%',
+    alignItems: 'center',
+    backgroundColor: AppColors.white,
   },
 });
 
