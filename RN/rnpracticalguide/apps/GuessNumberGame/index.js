@@ -9,7 +9,6 @@ import AppColors from './themes/AppColors';
 const GuessNumber = props => {
   const [selectedUserNumber, setSelectedUserNumber] = useState();
   const [guesses, setGuesses] = useState(0);
-
   const resetGameToNew = () => {
     setGuesses(0);
     setSelectedUserNumber(null);
