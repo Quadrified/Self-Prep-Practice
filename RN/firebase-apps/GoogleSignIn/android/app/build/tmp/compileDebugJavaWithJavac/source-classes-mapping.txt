@@ -1,0 +1,14 @@
+com/googlesignin/MainApplication.java
+ com.googlesignin.MainApplication
+ com.googlesignin.MainApplication$1
+com/googlesignin/ReactNativeFlipper.java
+ com.googlesignin.ReactNativeFlipper
+ com.googlesignin.ReactNativeFlipper$1
+ com.googlesignin.ReactNativeFlipper$2
+ com.googlesignin.ReactNativeFlipper$2$1
+com/googlesignin/BuildConfig.java
+ com.googlesignin.BuildConfig
+com/googlesignin/MainActivity.java
+ com.googlesignin.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

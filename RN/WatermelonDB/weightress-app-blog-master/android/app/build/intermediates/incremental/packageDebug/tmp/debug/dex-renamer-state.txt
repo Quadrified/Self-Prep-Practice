@@ -1,0 +1,4 @@
+#Tue Jul 27 00:21:16 IST 2021
+base.0=E\:\\Self-Prep-Practice\\RN\\WatermelonDB\\weightress-app-blog-master\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
