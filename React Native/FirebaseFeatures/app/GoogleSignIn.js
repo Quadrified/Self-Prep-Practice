@@ -109,8 +109,8 @@ const GoogleSignIn = props => {
             onPress={onGoogleSignIn}
             style={styles.googleSignInContainer}
           />
-          <Button mode="contained" onPress={onAnonymousLogin} color="#005A9C">
-            Sign in Anonymously
+          <Button mode="outlined" onPress={onAnonymousLogin} color="#005A9C">
+            Continue without signing in
           </Button>
         </>
       )}
