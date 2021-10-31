@@ -60,12 +60,17 @@ const FirebaseFirestore = props => {
       .collection('users')
       .doc('omer')
       .update({
-        name: 'Omer',
+        name: 'Omer Quadri',
         createdAt: firestore.FieldValue.serverTimestamp(),
       })
       .then(res => {
         console.log('>>>res<<<', res, firestoreData);
       });
+
+    // manage offline persistence
+    await firestore().settings({
+      persistence: true, // disable offline persistence
+    });
   };
 
   return (
@@ -76,7 +81,9 @@ const FirebaseFirestore = props => {
       />
       <View style={styles.container}>
         {firestoreData?.map(user => (
-          <Text style={styles.text}>Name:{user.name}</Text>
+          <Text style={styles.text} key={user}>
+            Name:{user.name}
+          </Text>
         ))}
       </View>
 
