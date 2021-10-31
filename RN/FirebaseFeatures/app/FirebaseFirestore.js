@@ -68,9 +68,9 @@ const FirebaseFirestore = props => {
       });
 
     // manage offline persistence
-    await firestore().settings({
-      persistence: true, // disable offline persistence
-    });
+    // await firestore().settings({
+    //   persistence: true, // disable offline persistence
+    // });
   };
 
   return (
