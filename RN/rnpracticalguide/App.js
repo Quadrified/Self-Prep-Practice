@@ -1,9 +1,10 @@
 import React from 'react';
 import MaxApps from './apps/MaxApps';
+import WhatsAppDirectChat from './apps/WhatsAppDirectChat';
 
 const App = props => {
   console.clear();
-  return <MaxApps />;
+  return <WhatsAppDirectChat />;
 };
 
 export default App;

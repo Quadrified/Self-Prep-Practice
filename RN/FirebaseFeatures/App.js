@@ -1,12 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import FirebaseFirestore from './app/FirebaseFirestore';
-
-import FirebaseSignIn from './app/FirebaseSignIn';
+import EntryPoint from './app/EntryPoint';
 
 const App = () => {
   console.clear();
-  return <FirebaseFirestore />;
+  return <EntryPoint />;
 };
 
 export default App;

@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text, StatusBar, Image } from 'react-native';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 import { Button } from 'react-native-paper';
-import database, { firebase } from '@react-native-firebase/database';
 
-const GoogleSignInView = ({ userInfo, onSignOut }) => {
-  console.log('>>>userInfo in Google View<<<', userInfo);
-  // console.log('>>>userID<<<', userInfo.uid);
-  useEffect(() => {
-    console.log('>>>Executong<<<');
-    /** --------------------------
-        * Getting a single doc from collection 'users'
-       --------------------------**/
-    const database = firebase
-      .app()
-      .database(
-        'https://fir-tests-e77ff-default-rtdb.asia-southeast1.firebasedatabase.app/',
-      )
-      .ref(`/users/${userInfo.uid}`)
-      .once('value')
-      .then(snapshot => {
-        console.log('User data: ', snapshot.val());
-      });
-  }, []);
+const GoogleLogin = ({ navigation, route }) => {
+  const userInfo = route.params?.userData;
+  console.log('>>>userInfo in goolgew<<<', JSON.parse(userInfo));
+
+  const onGoogleSignOut = async () => {
+    try {
+      await GoogleSignin.signOut();
+      auth()
+        .signOut()
+        .then(() => {
+          console.log('User signed out!');
+          navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.infoCard}>
@@ -61,7 +61,7 @@ const GoogleSignInView = ({ userInfo, onSignOut }) => {
           </Text>
         </View>
         <View style={styles.signOutContainer}>
-          <Button mode="contained" onPress={onSignOut} color="#E63B2A">
+          <Button mode="contained" onPress={onGoogleSignOut} color="#E63B2A">
             Sign out
           </Button>
         </View>
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GoogleSignInView;
+export default GoogleLogin;

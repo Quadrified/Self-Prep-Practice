@@ -1,30 +1,23 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import auth from '@react-native-firebase/auth';
 import { Button } from 'react-native-paper';
-import database, { firebase } from '@react-native-firebase/database';
 
-const AnonymousView = ({ userInfo, onSignOut }) => {
-  // console.log('>>>userInfo in AnonymousView<<<', userInfo);
-  // console.log('>>>userID<<<', userInfo.uid);
-  // useEffect(() => {
-  //   console.log('>>>Executong<<<', );
-  //   /** --------------------------
-  //       * Getting a single doc from collection 'users'
-  //      --------------------------**/
-  //   const database = firebase
-  //     .app()
-  //     .database(
-  //       'https://fir-tests-e77ff-default-rtdb.asia-southeast1.firebasedatabase.app/',
-  //     )
-  //     .ref(`/users/${userInfo.uid}`)
-  //     .once('value')
-  //     .then(snapshot => {
-  //       console.log('User data: ', snapshot.val());
-  //     });
-  // }, []);
+const AnonymousLogin = ({ navigation, route }) => {
+  const userInfo = JSON.parse(route.params?.userData);
+
+  const onSignOut = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        console.log('User signed out!');
+        navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+      });
+  };
+
   return (
     <View style={styles.container}>
-      {/* <View style={styles.infoCard}>
+      <View style={styles.infoCard}>
         <View style={styles.userInfo}>
           <Text style={styles.text}>Welcome you are signed in anonymously</Text>
           <Text
@@ -40,7 +33,7 @@ const AnonymousView = ({ userInfo, onSignOut }) => {
             User ID:{' '}
           </Text>
           <Text style={[styles.text, { paddingHorizontal: 5, fontSize: 18 }]}>
-            {userInfo.uid}
+            {userInfo?.uid}
           </Text>
         </View>
         <View style={styles.signOutContainer}>
@@ -48,7 +41,7 @@ const AnonymousView = ({ userInfo, onSignOut }) => {
             Sign out
           </Button>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 };
@@ -91,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AnonymousView;
+export default AnonymousLogin;

@@ -5,15 +5,8 @@ import database from '@react-native-firebase/database';
 
 export const signUp = (data) => async (dispatch) => {
   console.log(data);
-  const {
-    name,
-    instaUsername,
-    bio,
-    email,
-    password,
-    country,
-    profileImage,
-  } = data;
+  const { name, instaUsername, bio, email, password, country, profileImage } =
+    data;
 
   // creating user
   auth()

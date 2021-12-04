@@ -48,12 +48,12 @@ const FirebaseFirestore = props => {
     console.log('>>>name<<<', nickName, age);
 
     // adding random user to collection as a doument
-    // await firestore()
-    //   .collection('users')
-    //   .add({ name: nickName, age, test: true })
-    //   .then(res => {
-    //     console.log('>>>res<<<', res, firestoreData);
-    //   });
+    await firestore()
+      .collection('users')
+      .add({ name: nickName, age, test: true })
+      .then(res => {
+        console.log('>>>res<<<', res, firestoreData);
+      });
 
     // updating an existing document 'omer' under 'users' collection
     await firestore()
